@@ -1,8 +1,11 @@
 const viewCountries = document.getElementById('viewCountries');
+const search = document.getElementById('search');
+const inputSearchCountries = document.getElementById('inputSearchCountries');
 
 document.addEventListener("DOMContentLoaded", e => {
     // le pasamos lo que queremos cargar cuando se ingrese a nuestro sitio web
     obtenerCountries();
+   
 })
 
 const obtenerCountries = async () => {
@@ -15,8 +18,9 @@ const obtenerCountries = async () => {
          
         const arrayCountries = data1.map(athletes => athletes.noc);
         mostrar(arrayCountries,dataCountriesFlag);
+        searchCountries(dataCountriesFlag);
         // dataCountries(arrayCountries,dataCountriesFlag);
-        // console.log(dataCountriesFlag)
+        console.log(dataCountriesFlag)
     } catch (error) {
         console.log(error);
     }
@@ -31,9 +35,7 @@ const mostrar = (arrayCountries,dataCountriesFlag) =>{
     let elementos = '';
     
     for (let i = 0; i < unique.length; i++) {
-
-        for (let f = 0; f < dataCountriesFlag.length; f++) {
-            
+        for (let f = 0; f < dataCountriesFlag.length; f++) {    
             if (dataCountriesFlag[f].alpha3Code.indexOf(unique[i])!== -1) {
             // console.log(dataCountriesFlag);
             elementos += `
@@ -43,24 +45,62 @@ const mostrar = (arrayCountries,dataCountriesFlag) =>{
                 <h4>${dataCountriesFlag[f].name}</h4>
                 <!--<h4>${dataCountriesFlag[f].alpha3Code}</h4>-->
                 <!--<h4>${unique[i]}</h4>-->
-
             </div>
             </article>
             `
-        } else {
-            console.log('no es igual');
-        }
-    }
-    // elementos += `
-    // <article class="card">
-    //     <div class="card-content">
-    //         <h4>${unique[i]}</h4>
-    //     </div>
-    // </article>
-    // `  
-    
-    // console.log(elementos);
-    
+        } 
+    }    
 }
 viewCountries.innerHTML = elementos;
 }
+
+const viewSearchCountries = arraySearchCountries => {
+    let elementos2 = '';
+    arraySearchCountries.forEach(item => {
+        elementos2 += `
+        <article class="card">
+            <div class="card-content">
+                <img src=${item.flag} alt="" class="img-fluid">  
+                <h4>${item.name}</h4>
+            </div>
+        </article>
+        `
+    });
+        viewCountries.innerHTML = elementos2;
+}
+
+const searchCountries = (dataCountriesFlag) => {
+    search.addEventListener('keyup', e => {
+        e.preventDefault()
+        const textUser = inputSearchCountries.value.toLowerCase();
+        // console.log(textUser);
+        // console.log(typeof(textUser));
+        
+        const arraySearchCountries = dataCountriesFlag.filter(item => {
+            const itemTeam = item.name.toLowerCase();
+            console.log(itemTeam);
+            if(itemTeam.indexOf(textUser)!== -1 ){
+                 return item;
+            } 
+        })
+        viewSearchCountries(arraySearchCountries);
+    });
+ }
+        
+        
+       
+        
+        
+       
+        
+        
+       
+        
+        
+       
+        
+        
+       
+        
+        
+       

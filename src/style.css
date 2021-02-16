@@ -48,7 +48,7 @@ body {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr)); /*Permite repetir 4  veces de un mismo tamaño(1fr)*/
+    grid-template-columns: repeat(5, minmax(0, 1fr)); /*Permite repetir 4  veces de un mismo tamaño(1fr)*/
     gap: 1rem; /*Espacion entre grid*/
 }
 
