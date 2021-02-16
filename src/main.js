@@ -1,7 +1,7 @@
 const viewAthletes = document.getElementById('viewAthletes');
 
 const search = document.getElementById('search');
-const inputSearch = document.getElementById('inputSearch');
+const inputSearchAthletes = document.getElementById('inputSearchAthletes');
 
 // consumo de la API
 document.addEventListener("DOMContentLoaded", e => {
@@ -48,6 +48,7 @@ const dataAthletes = arrayMedalGold => {
          elementos += `
         <article class="card">
             <div class="card-content">
+                <img src="./img/logo.png" alt="" class="img">
                 <h4>${arrayMedalGold[i].name.toUpperCase()}</h4>
                 <p>
                     ${arrayMedalGold[i].noc } &nbsp|&nbsp ${arrayMedalGold[i].sport.toUpperCase()}
@@ -89,23 +90,24 @@ const dataAthletes1 = data1 => {
  const searchAthletes = (data1,arrayMedalGold) => {
     search.addEventListener('keyup', e => {
         e.preventDefault()
-        const textUser = inputSearch.value.toLowerCase();
-        // console.log(textUser);
-        // console.log(typeof(textUser));
+        const textUser = inputSearchAthletes.value.toLowerCase();
+        console.log(textUser);
         
         const arrayTeam = data1.filter(item => {
             const itemTeam = item.name.toLowerCase();
-            // console.log(itemTeam);
+            // console.log(itemTeam.length);
             if(itemTeam.indexOf(textUser)!== -1 ){
                  return item;
             } 
         })
         
         if (arrayTeam.length == 2023) {
+            
             dataAthletes(arrayMedalGold);
         } else {
             dataAthletes1(arrayTeam);
         }
+        // dataAthletes1(arrayTeam);
     });
  }
 
