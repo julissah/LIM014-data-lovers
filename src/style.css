@@ -1,16 +1,25 @@
+:root {
+    --box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --border-radius: 0.375rem;
+    --color-bg: #bebebe;
+    --color-bg-secondary: #ffffff;
+    --color-text: #000000;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Lato', sans-serif;
-    
 }
 
+
 body {
-    --color-bg: #bebebe;
-    --color-bg-secondary: #ffffff;
-    --color-text: #000000;
+    font-family: 'Lato', sans-serif;
     width: 100%;
+}
+
+.hide {
+    display: none;
 }
 
 .container {
@@ -19,6 +28,29 @@ body {
     width: 85%;
 }
 
+
+/* Espacios */
+.my-2{
+    /* Rem es una unidad relativa 1rem=16px */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Menú de Navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.navbar img {
+    width: 80px;
+}
+
+.img-fluid {
+    width: 100%; /*100% permitira que se respete el ancho del contenedor*/
+}
 .main-nav {
     margin-top: 10px;
     list-style: none; 
@@ -26,30 +58,63 @@ body {
     align-items: left;
 }
 .main-nav__item {
-    display: inline-block;
+    display: inline-block; /*Cambia a horizontal los elementos de la lista*/
     padding: 20px;
     font-weight: bold;
 }
-
-.nav-bar-content {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+.main-nav__item a {
+    color: seagreen;
+    text-decoration: none;
+    font-size: 1.3rem;
 }
 
-.img {
-    width: 80px;
+.main-nav__item a:hover {
+    color: black;
+
 }
 
-.img-fluid {
-    width: 100%; /*100% permitira que se respete el ancho del contenedor*/
+/* Filtros */
+.form-search {
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    background-color: var(--color-bg-secondary);
+    padding: 1rem;
 }
 
+.form-search i {
+    opacity: 0.5;
+}
+
+.form-search input {
+    border: none;
+    outline: none; /*Retira el borde negro del input al momento de hacer click*/
+    margin-left: 1rem;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text);
+    border-radius: var(--bo);
+}
+
+/* Cards */
 .grid {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr)); /*Permite repetir 4  veces de un mismo tamaño(1fr)*/
     gap: 1rem; /*Espacion entre grid*/
+}
+
+
+.grid3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /*Permite repetir 4  veces de un mismo tamaño(1fr)*/
+    gap: 1rem; /*Espacion entre grid*/
+    display: flex;
+    justify-content: space-between;
+}
+.grid4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /*Permite repetir 4  veces de un mismo tamaño(1fr)*/
+    gap: 1rem; /*Espacion entre grid*/
+    display: flex;
+    justify-content: space-between;
 }
 
 .card {
@@ -60,22 +125,21 @@ body {
 }
 
 .card img { /*Borde superior redondeado de imagen*/
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    height: 7rem;
 }
 
-.card-content { /*Espaciado del texto de card*/
+.card-content h4 { /*Espaciado del texto de card */
     padding: 1rem;
-}
-
-.card-content h4 { 
-    font-size: 1rem;
-    margin-bottom: 8px;
     text-align: center;
 }
 
-.card-content p { 
-    text-align: center;
-    font-size: 12px;
-}
 
+.card-content p { /*Espaciado del texto de card */
+    padding: 1rem;
+    text-align: center;
+}
+/* .active {
+    color: blueviolet;
+} */
