@@ -1,45 +1,109 @@
 <!DOCTYPE html>
-
 <html>
   <head>
-    <meta charset="utf-8">
     <title> RIO2016 | BEST OLYMPIC DATA </title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32[1].png">
-    
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Menú de Navegación -->
     <header>
-      <nav class="container nav-bar-content" >
-        <img src="./img/logo.png" alt="" class="img">
+      <nav class="container navbar" >
+        <img src="./img/logo.png" alt="" >
         <ul class="main-nav">
-          <li class="main-nav__item" id="rio">RIO 2016</li>
-          <li class="main-nav__item" id="countries">
-            <a href="countries.html">COUNTRIES</a>
-            
-          </li>
-          <li class="main-nav__item" id="medals">MEDALS</li>
-          <li class="main-nav__item" id="sport">SPORTS</li>
-          <li class="main-nav__item" id="athletesS">ATHLETES</li>
-          <li class="main-nav__item" id="search">
-            <input type="text" placeholder=" Athletes" id="inputSearchAthletes"><i class="fas fa-search"></i>
-          </li>
+          <li class="main-nav__item"><a class="" href="#pageRio">RIO 2016</a></li> 
+          <li class="main-nav__item"><a class="" href="#pageCountries">COUNTRIES</a></li>
+          <li class="main-nav__item"><a class="" href="#pageMedals">MEDALS</a></li>
+          <li class="main-nav__item"><a class="" href="#pageSports">SPORTS</a></li>
+          <li class="main-nav__item"><a class="" href="#pageAthletes">ATHLETES</a></li>
         </ul>
       </nav>
     </header>
-    <main class="container grid" id="viewAthletes">
-      
-      
+    <!-- Contenido -->
+    <main>
+
+      <!-- Page Rio 2016 -->
+      <section id="pageRio" class="my-2 container">
+        <div class="container my-2">
+          <h1 class="my-2">JUEGOS OLIMPICOS DE RÍO DE Janeiro</h1>
+        </div>
+        
+      </section>
+
+      <!-- Page Countries -->
+      <section id="pageCountries" class="my-2">
+        <!-- head -->
+        <div class="container my-2 grid4">
+          <form class="form-search" id="searchC">
+            <input type="text" placeholder=" Pais" id="inputSearchCountries"><i class="fas fa-search"></i>
+          </form>
+          <div>
+            
+            <!-- <button><i class="fas fa-sort-alpha-up"></i></button> -->
+            <!-- <button id="orderAlpha"><i class="fas fa-sort-alpha-down-alt"></i></button> -->
+          </div>
+          
+
+
+        </div>
+        <!-- main -->
+        <div id="mainCountries" class="container grid">
+        </div>
+      </section>
+
+      <!-- Page Medals -->
+      <section id="pageMedals" class="my-2">
+        <!-- head -->
+        <h1>MEDALS</h1>
+        <div class="container my-2 grid3">
+          <form class="form-search" id="searchM">
+            <input type="text" placeholder=" Medals" id="inputSearchMedals"><i class="fas fa-search"></i>
+          </form>
+        </div>
+        <!-- main -->
+        <div id="mainMedals" class="container grid">
+        </div>
+      </section>
+
+      <!-- Page Sports -->
+      <section id="pageSports" class="my-2">
+      <!-- head -->
+      <h1>SPORTS</h1>
+      <div class="container my-2 grid3">
+        <form class="form-search" id="searchS">
+          <input type="text" placeholder=" Sports" id="inputSearchSports"><i class="fas fa-search"></i>
+        </form>
+      </div>
+      <!-- main -->
+      <div id="mainSports" class="container grid">
+      </div>
+      </section>
+
+      <!-- Page Athletes -->
+      <section id="pageAthletes" class="my-2">
+        <!-- head -->
+        <h1>ATHLETES</h1>
+        <div class="container my-2 grid3">
+          <form class="form-search" id="searchA">
+            <input type="text" placeholder=" Athletes" id="inputSearchAthletes"><i class="fas fa-search"></i>
+            <select class="flex-filter" name="ordenar" id="orderAlpha">
+              <option value="0" selected disabled>Order</option>
+              <option value="1">A-Z</option>
+              <option value="2">Z-A</option>
+            </select>
+          </form>
+          
+        </div>
+        <!-- main -->
+        <div id="mainAthletes" class="container grid">
+        </div>
+      </section>
+
     </main>
-    <p id="mostrarAtletas"></p>
-    <footer>
-      <p>© Copyright 2021 - Todos los derechos reservados</p>
-    </footer>
-    
+    <div id="root"></div>
     <script src="main.js" type="module"></script>
   </body>
 </html>
