@@ -3,7 +3,7 @@ const viewCountries = document.getElementById('mainCountries');
 const viewAthletes = document.getElementById('mainAthletes');
 const searchC = document.getElementById('searchC'); // Filtro de búsqueda de 
 const searchA = document.getElementById('searchA'); //
-
+const searchTeam = document.getElementById("searchTeam");
 
 // *** Countries
 export const countries = (dataCountries,dataCountriesFlag) =>{
@@ -11,13 +11,13 @@ export const countries = (dataCountries,dataCountriesFlag) =>{
   const unique = sorted.filter((value,index) => {
       return value != sorted[index + 1];
   });
-  
+
   let elementos = '';
-  
+    
   for (let i = 0; i < unique.length; i++) {
       for (let f = 0; f < dataCountriesFlag.length; f++) {    
           if (dataCountriesFlag[f].alpha3Code.indexOf(unique[i])!== -1) {
-          // console.log(dataCountriesFlag);
+        //   console.log(dataCountriesFlag);
           elementos += `
           <article class="card">
           <div class="card-content">
@@ -29,11 +29,11 @@ export const countries = (dataCountries,dataCountriesFlag) =>{
           </article>
           `
       } 
-  }    
+  } 
+  
 }
 viewCountries.innerHTML = elementos;
 }
-
 // Filtro de busqueda Countries
 
 export const searchCountries = dataCountriesFlag => {
@@ -154,7 +154,21 @@ export const athletesAll = dataRio => {
     viewAthletes.innerHTML = elementos;
 }
 
-// filter sport
+export const inputTeam = (dataCountriesTeam) => {
+    
+    const unique = [...new Set(dataCountriesTeam)]
+    console.log(unique);
+    
+    let team = '';
+    unique.forEach(item => {
+        team += `
+          <option value=${item}></option>
+        `
+    });
+    searchTeam.innerHTML = team;
+}
+
+
 
 
 

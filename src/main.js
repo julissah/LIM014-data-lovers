@@ -5,6 +5,7 @@ athletesGold,
 searchAthletes,
 orderAlpha,
 athletesAll,
+inputTeam,
 } from './data.js';
 
 import data from './data/athletes/athletes.js';
@@ -16,6 +17,7 @@ const dataCountriesFlag = dataFlag.map(dataFlag => dataFlag) //data countries fl
 const dataCountriesNoc = data.athletes.map(athletes => athletes.noc) //data athletes noc
 const arrayMedalGold = dataRio.filter(athletes => athletes.medal === 'Gold')
 const sport = dataRio.map(athletes => athletes.sport)
+const dataCountriesTeam = data.athletes.map(athletes => athletes.team) //data athletes team
 
 countries(dataCountriesNoc,dataCountriesFlag);
 searchCountries(dataCountriesFlag);
@@ -23,14 +25,8 @@ athletesGold(arrayMedalGold)
 searchAthletes(dataRio,arrayMedalGold)
 filterSport(sport,dataRio)
 filterAlpha(arrayMedalGold)
-
-// const alpha = document.getElementById("orderAlphaCountries");
-// const resultText = document.getElementById("result");
-
-// alpha.addEventListener("change", (e) => {
-//     const arrayOrder = e.target.value;
-//     orderAlphaCountries(arrayOrder, arrayMedalGold);
-//   });
+filterTeam(dataCountriesTeam,dataRio)
+inputTeam(dataCountriesTeam);
   
 })
 // Filter Sport
@@ -57,6 +53,24 @@ const filterAlpha = (arrayMedalGold) => {
     orderAlpha(arrayOrder, arrayMedalGold);
   });
 }
+
+// Filter Team
+const filterTeam = (dataCountriesTeam,dataRio) => {
+  document.getElementById("teamRio").addEventListener("change", (event) => {
+    const textTeam = teamRio.value;
+    const teamUser = dataCountriesTeam.includes(textTeam)
+    console.log(teamUser);
+    console.log(dataCountriesTeam);
+    if(teamUser == true) {
+      const teamFilter = dataRio.filter(athletes => athletes.team === textTeam)
+      athletesAll(teamFilter);
+    } else {
+      athletesAll(dataRio);
+    }
+    return textTeam;
+  });
+  }
+  
 
 
 
