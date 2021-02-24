@@ -1,7 +1,9 @@
+
 const viewCountries = document.getElementById('mainCountries');
 const viewAthletes = document.getElementById('mainAthletes');
-const searchC = document.getElementById('searchC');
-const searchA = document.getElementById('searchA');
+const searchC = document.getElementById('searchC'); // Filtro de búsqueda de 
+const searchA = document.getElementById('searchA'); //
+
 
 // *** Countries
 export const countries = (dataCountries,dataCountriesFlag) =>{
@@ -9,7 +11,7 @@ export const countries = (dataCountries,dataCountriesFlag) =>{
   const unique = sorted.filter((value,index) => {
       return value != sorted[index + 1];
   });
-  console.log(unique)
+  
   let elementos = '';
   
   for (let i = 0; i < unique.length; i++) {
@@ -52,7 +54,7 @@ export const searchCountries = dataCountriesFlag => {
         })
         viewSearchCountries(arraySearchCountries);
     });
- }
+}
 
  export const viewSearchCountries = arraySearchCountries => {
     let elementos2 = '';
@@ -68,16 +70,6 @@ export const searchCountries = dataCountriesFlag => {
     });
         viewCountries.innerHTML = elementos2;
 }
-
-// Filtro Alpha
-// export const orderAlphaZA = (arraySearchCountries) => {
-//     const orderAlpha = document.getElementById('orderAlpha');
-//     orderAlpha.addEventListener('click',() => {
-        
-//     })
-//     return ;
-// }
-
 
 export const orderAlpha = (option, arrayMedalGold) => {
     
@@ -96,13 +88,11 @@ export const orderAlpha = (option, arrayMedalGold) => {
     return arrayMedalGold;
   };
 
-
-
 // *** Athletes
 export const athletesGold = arrayMedalGold => {
     let elementos = '';    
     // console.log(medalGoldAthletes);
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 250; i++) {
          elementos += `
         <article class="card">
             <div class="card-content">
@@ -163,3 +153,8 @@ export const athletesAll = dataRio => {
     });
     viewAthletes.innerHTML = elementos;
 }
+
+// filter sport
+
+
+
