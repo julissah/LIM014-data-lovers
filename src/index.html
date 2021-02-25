@@ -87,7 +87,7 @@
         <!-- head -->
         <h1>ATHLETES</h1>
         <div class="container my-2 grid3">
-          <form class="form-search" id="searchA">
+          <form class="form-search" id="searchA">  
             <input type="text" placeholder=" Athletes" id="inputSearchAthletes"><i class="fas fa-search"></i>
             <select class="flex-filter" name="ordenar" id="orderAlpha">
               <option value="0" selected disabled>Order</option>
@@ -95,6 +95,52 @@
               <option value="2">Z-A</option>
             </select>
           </form>
+        <section id="selectors">
+          <input type="search" id="sportRio" list="search" placeholder="Search Sport">
+          <datalist id="search">
+            <option value="All"></option>
+            <option value="Archery"></option>
+            <option value="Athletics"></option>
+            <option value="Badminton"></option>
+            <option value="Basketball"></option>
+            <option value="Beach Volleyball"></option>
+            <option value="Boxing"></option>
+            <option value="Canoeing"></option>
+            <option value="Cycling"></option>
+            <option value="Diving"></option>
+            <option value="Equestrianism"></option>
+            <option value="Fencing"></option>
+            <option value="Football"></option>
+            <option value="Golf"></option>
+            <option value="Gymnastics"></option>
+            <option value="Handball"></option>
+            <option value="Hockey"></option>
+            <option value="Judo"></option>
+            <option value="Modern Pentathlon"></option>
+            <option value="Rhythmic Gymnastics"></option>
+            <option value="Rowing"></option>
+            <option value="Rugby Sevens"></option>
+            <option value="Sailing"></option>
+            <option value="Shooting"></option>
+            <option value="Swimming"></option>
+            <option value="Synchronized Swimming"></option>
+            <option value="Table Tennis"></option>
+            <option value="Taekwondo"></option>
+            <option value="Tennis"></option>
+            <option value="Trampolining"></option>
+            <option value="Triathlon"></option>
+            <option value="Volleyball"></option>
+            <option value="Water Polo"></option>
+            <option value="Weightlifting"></option>
+            <option value="Wrestling"></option>
+          </datalist>
+          
+        <section id="">
+            <input type="search" id="teamRio" list="searchTeam" placeholder="Search Team" >
+            <datalist id="searchTeam">
+              <option value="All teams" ></option>
+            </datalist>
+        </section>
           
         </div>
         <!-- main -->
