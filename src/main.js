@@ -6,7 +6,9 @@ searchAthletes,
 orderAlpha,
 athletesAll,
 inputTeam,
+inputGenderFilter,
 } from './data.js';
+import athletes from './data/athletes/athletes.js';
 
 import data from './data/athletes/athletes.js';
 import dataFlag from './data/athletes/flag.js';
@@ -19,6 +21,7 @@ const arrayMedalGold = dataRio.filter(athletes => athletes.medal === 'Gold')
 const sport = dataRio.map(athletes => athletes.sport)
 const dataCountriesTeam = data.athletes.map(athletes => athletes.team) //data athletes team
 
+
 countries(dataCountriesNoc,dataCountriesFlag);
 searchCountries(dataCountriesFlag);
 athletesGold(arrayMedalGold)
@@ -27,16 +30,31 @@ filterSport(sport,dataRio)
 filterAlpha(arrayMedalGold)
 filterTeam(dataCountriesTeam,dataRio)
 inputTeam(dataCountriesTeam);
+filterGender(dataRio);
   
 })
 // Filter Sport
 const filterSport = (sport,dataRio) => {
-document.getElementById("sportRio").addEventListener("change", (event) => {
+
+  // const input = document.createElement('input');
+  //   input.type = 'search';
+  //   input.id = 'genderRio';
+  //   // input.list = 'searchGender';
+  //   input.placeholder = 'Search Gender';
+  //   document.querySelector('#gender').appendChild(input);
+
+  //   const datalist = document.createElement('datalist');
+  //   datalist.list = 'searchGender';
+
+  //   document.querySelector('#gender').appendChild(datalist);
+
+  document.getElementById("sportRio").addEventListener("change", (event) => {
   const textSport = sportRio.value;
   const sportUser = sport.includes(textSport)
   if(sportUser == true) {
-    const sportFilter = dataRio.filter(athletes => athletes.sport === textSport)  
+    const sportFilter = dataRio.filter(athletes => athletes.sport === textSport) 
     athletesAll(sportFilter);
+    
   } else {
     athletesAll(dataRio);
   }
@@ -68,6 +86,31 @@ const filterTeam = (dataCountriesTeam,dataRio) => {
       athletesAll(dataRio);
     }
     return textTeam;
+  });
+  }
+
+  // Filter Gender
+const filterGender = dataRio => {
+  document.getElementById("genderRio").addEventListener("change", (event) => {
+    const textTeam = genderRio.value;
+    console.log(textTeam);
+
+    const textSport = sportRio.value;
+    const sportUser = sport.includes(textSport)
+
+    const sportFilter = dataRio.filter(athletes => athletes.sport === textSport)  
+    const eventFilter = sportFilter.map(athletes => athletes.event)
+    const genderMaleFilter = sportFilter.filter(athletes => athletes.gender === "M")
+    const genderFemaleFilter = sportFilter.filter(athletes => athletes.gender === "F")
+    
+    inputGenderFilter(genderMaleFilter,genderFemaleFilter, textTeam);
+    // if(teamUser == true) {
+    //   const teamFilter = dataRio.filter(athletes => athletes.team === textTeam)
+    //   athletesAll(teamFilter);
+    // } else {
+    //   athletesAll(dataRio);
+    // }
+    // return textTeam;
   });
   }
   

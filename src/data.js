@@ -5,6 +5,7 @@ const searchC = document.getElementById('searchC'); // Filtro de búsqueda de
 const searchA = document.getElementById('searchA'); //
 const searchTeam = document.getElementById("searchTeam");
 
+
 // *** Countries
 export const countries = (dataCountries,dataCountriesFlag) =>{
   const sorted = dataCountries.sort();
@@ -152,23 +153,53 @@ export const athletesAll = dataRio => {
         `
     });
     viewAthletes.innerHTML = elementos;
+
+    
 }
 
 export const inputTeam = (dataCountriesTeam) => {
-    
     const unique = [...new Set(dataCountriesTeam)]
-    console.log(unique);
-    
     let team = '';
     unique.forEach(item => {
         team += `
-          <option value=${item}></option>
+          <option value="${item}"></option>
         `
     });
     searchTeam.innerHTML = team;
 }
 
+export const inputGenderFilter = (genderMaleFilter, genderFemaleFilter, textTeam) => {
+    const uniqueM = [...new Set(genderMaleFilter)]
+    const uniqueF = [...new Set(genderFemaleFilter)]
+
+    let genderM = '';
+    let genderF = '';
 
 
+    switch (textTeam) {
+        case "Male":
+          athletesAll(uniqueM)
+          break;
+        case "Female":
+            athletesAll(uniqueF)
+            break;
+        default:
+            athletesAll(dataRio)
+      }
+    
+    
+    
+    
+                
+    
+    
+
+
+    // uniqueM.forEach(item => {
+
+    // })
+
+}
+  
 
 
