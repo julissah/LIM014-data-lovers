@@ -4,7 +4,7 @@ const viewAthletes = document.getElementById('mainAthletes');
 const searchC = document.getElementById('searchC'); // Filtro de búsqueda de 
 const searchA = document.getElementById('searchA'); //
 const searchTeam = document.getElementById("searchTeam");
-
+const searchEvent = document.getElementById("searchEvent");
 
 // *** Countries
 export const countries = (dataCountries,dataCountriesFlag) =>{
@@ -168,37 +168,41 @@ export const inputTeam = (dataCountriesTeam) => {
     searchTeam.innerHTML = team;
 }
 
-export const inputGenderFilter = (genderMaleFilter, genderFemaleFilter, textTeam) => {
-    const uniqueM = [...new Set(genderMaleFilter)]
-    const uniqueF = [...new Set(genderFemaleFilter)]
+export const inputGenderFilter = (genderMaleFilter, genderFemaleFilter, textGender) => {
+    const maleEvent = genderMaleFilter.map(athletes => athletes.event);
+    const femaleEvent = genderFemaleFilter.map(athletes => athletes.event);
 
-    let genderM = '';
-    let genderF = '';
+    const uniqueM = [...new Set(maleEvent)]
+    const uniqueF = [...new Set(femaleEvent)]
+   
+    
 
-
-    switch (textTeam) {
+    switch (textGender) {
         case "Male":
-          athletesAll(uniqueM)
-          break;
+            inputEventFilter(uniqueM)
+            athletesAll(genderMaleFilter)
+            break;
         case "Female":
-            athletesAll(uniqueF)
+            inputEventFilter(uniqueF)
+            athletesAll(genderFemaleFilter)
             break;
         default:
-            athletesAll(dataRio)
+            
       }
-    
-    
-    
-    
-                
-    
-    
+}
 
-
-    // uniqueM.forEach(item => {
-
-    // })
-
+export const inputEventFilter = (unique) =>{
+    document.getElementById('event').classList.remove('hide');
+    let event = '';
+    unique.forEach(item => {
+        // const option = document.createElement('option');
+        // option.value = item;
+        // document.querySelector('#searchEvent').appendChild(option);
+        event += `
+          <option value="${item}"></option>
+        `
+    });
+    searchEvent.innerHTML = event;
 }
   
 

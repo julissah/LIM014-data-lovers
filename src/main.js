@@ -7,6 +7,7 @@ orderAlpha,
 athletesAll,
 inputTeam,
 inputGenderFilter,
+
 } from './data.js';
 import athletes from './data/athletes/athletes.js';
 
@@ -35,22 +36,11 @@ filterGender(dataRio);
 })
 // Filter Sport
 const filterSport = (sport,dataRio) => {
-
-  // const input = document.createElement('input');
-  //   input.type = 'search';
-  //   input.id = 'genderRio';
-  //   // input.list = 'searchGender';
-  //   input.placeholder = 'Search Gender';
-  //   document.querySelector('#gender').appendChild(input);
-
-  //   const datalist = document.createElement('datalist');
-  //   datalist.list = 'searchGender';
-
-  //   document.querySelector('#gender').appendChild(datalist);
-
   document.getElementById("sportRio").addEventListener("change", (event) => {
+  document.getElementById('gender').classList.remove('hide');
   const textSport = sportRio.value;
   const sportUser = sport.includes(textSport)
+  
   if(sportUser == true) {
     const sportFilter = dataRio.filter(athletes => athletes.sport === textSport) 
     athletesAll(sportFilter);
@@ -91,12 +81,12 @@ const filterTeam = (dataCountriesTeam,dataRio) => {
 
   // Filter Gender
 const filterGender = dataRio => {
-  document.getElementById("genderRio").addEventListener("change", (event) => {
+    document.getElementById("genderRio").addEventListener("change", (event) => {
     const textTeam = genderRio.value;
     console.log(textTeam);
 
     const textSport = sportRio.value;
-    const sportUser = sport.includes(textSport)
+    // const sportUser = sport.includes(textSport)
 
     const sportFilter = dataRio.filter(athletes => athletes.sport === textSport)  
     const eventFilter = sportFilter.map(athletes => athletes.event)
@@ -104,13 +94,7 @@ const filterGender = dataRio => {
     const genderFemaleFilter = sportFilter.filter(athletes => athletes.gender === "F")
     
     inputGenderFilter(genderMaleFilter,genderFemaleFilter, textTeam);
-    // if(teamUser == true) {
-    //   const teamFilter = dataRio.filter(athletes => athletes.team === textTeam)
-    //   athletesAll(teamFilter);
-    // } else {
-    //   athletesAll(dataRio);
-    // }
-    // return textTeam;
+    
   });
   }
   
