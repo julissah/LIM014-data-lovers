@@ -5,126 +5,138 @@ export default {
   "city": "Rio de Janeiro",
   "pictograms": [
     {
-      "img": "https://drive.google.com/file/d/1TIlj98F-jIR7-K5gVGi0cak2Tk2WA5XL/view?usp=sharing" ,
+      "img": "./img/pictogramas/Archery,_Rio_2016.png",
       "sport": "Archery"
     },
   {
-    "img": "https://drive.google.com/file/d/1cowdogu6HfQs8rbV_uxzKsoZKmixV0Ii/view?usp=sharing" ,
+    "img": "./img/pictogramas/Athletics,_Rio_2016.png",
     "sport": "Athletics"
-  },
+  }, 
   {
-    "img": "https://drive.google.com/file/d/1WmYXjl7VUYspqSC_kjqFLYKUQ1UWMHVI/view?usp=sharing" ,
+    "img": "./img/pictogramas/Badminton,_Rio_2016.png",
     "sport": "Badmington"
   },
   {
-    "img": "https://drive.google.com/file/d/1gQSyX_lZmbq07xV5pJhfErpUt4Tgpiiz/view?usp=sharing",
+    "img": "./img/pictogramas/Basketball,_Rio_2016.png",
     "sport": "Basketball"
   },
   {
-    "img": "https://drive.google.com/file/d/1mwB1k6dwuoNJpss3C_sQzMQOZCWOOBqK/view?usp=sharing",
+    "img": "./img/pictogramas/Volleyball_(Beach),_Rio_2016.png",
     "sport": "Beach Volleyball"
   },
   {
-    "img": "https://drive.google.com/file/d/1XTdwO2fOqg3GrANLZL5fnGYMUrkbOkFN/view?usp=sharing",
+    "img": "./img/pictogramas/Boxing,_Rio_2016.png",
     "sport": "Boxing"
   },
   {
-    "img": "https://drive.google.com/file/d/1fF_KNlyzQrjbesRzQeDaQ9eHfS_HvaEY/view?usp=sharing",
+    "img": "./img/pictogramas/Canoeing_(Sprint),_Rio_2016.png",
     "sport": "Canoeing"
   },
   {
-    "img": "https://drive.google.com/file/d/1rizo3_FDjWsW1q-damBmGcHsh-VnGQdC/view?usp=sharing",
+    "img": "./img/pictogramas/Cycling_(Mountain),_Rio_2016.png",
     "sport": "Cycling"
   },
   {
-    "img": "https://drive.google.com/file/d/1gMOrEx3tM60Ku2yv1PmZjcpu-IUFD1ZR/view?usp=sharing",
+    "img": "./img/pictogramas/Diving,_Rio_2016.png",
     "sport": "Diving"
   },
   {
-    "img": "https://drive.google.com/file/d/1sj7qkDsnRfH9QdV4Alpk_XywN3Vrtwl4/view?usp=sharing",
+    "img": "./img/pictogramas/Equestrian_(Eventing),_Rio_2016.png",
     "sport": "Equestrianism"
   },
   {
-    "img": "https://drive.google.com/file/d/14FTgCp9C_soyEBIC2MYWpYgJMTKh6HrQ/view?usp=sharing",
+    "img": "./img/pictogramas/Fencing,_Rio_2016.png",
     "sport": "Fencing"
   },
   {
-    "img": "https://drive.google.com/file/d/1-maYau56PnMD5juC7NT5mueleKFoY06k/view?usp=sharing",
+    "img": "./img/pictogramas/Field_Hockey,_Rio_2016.png",
     "sport": "Hockey"
   },
   {
-    "img": "https://drive.google.com/file/d/12j75zESG3fhBYSupQ8uoF04YJm7XtJEd/view?usp=sharing",
+    "img": "./img/pictogramas/Football,_Rio_2016.png",
     "sport": "Football"
   },
   {
-    "img": "https://drive.google.com/file/d/1vHZ4I6zALyUDfgOLLVBx1viUNkqb2R0S/view?usp=sharing",
+    "img": "./img/pictogramas/Golf,_Rio_2016.png",
     "sport": "Golf"
   },
   {
-    "img": "https://drive.google.com/file/d/1v_YXTWQuCDKRbAGF4PqpvSrkdblo7xYK/view?usp=sharing",
+    "img": "./img/pictogramas/Gymnastics_(Rhythmic),_Rio_2016.png",
+    "sport": "Gymnastics Rhythmic"
+  },
+  {
+    "img": "./img/pictogramas/Gymnastics,_Rio_2016.png",
     "sport": "Gymnastics"
   },
   {
-    "img": "https://drive.google.com/file/d/1QOw7rcci3QU0kBzyVXDT4kV7sNn6eo3A/view?usp=sharing",
+    "img": "./img/pictogramas/Handball,_Rio_2016.png",
     "sport": "Handball"
   },
   {
-    "img": "https://drive.google.com/file/d/1cagpigOKwOcTHqa49WhOx05i3agdwHyj/view?usp=sharing",
+    "img": "./img/pictogramas/Judo,_Rio_2016.png",
     "sport": "Judo"
   },
   {
-    "img": "https://drive.google.com/file/d/1GEZEkXy67AGpDhHoz6Tei6LbKbumdXH0/view?usp=sharing",
+    "img": "./img/pictogramas/Modern_Pentathlon,_Rio_2016.png",
     "sport": "Modern Pentathlon"
   },
   {
-    "img": "https://drive.google.com/file/d/1GvlzfZnwxxu62ao7CHVuOO9rd1aVaIni/view?usp=sharing",
+    "img": "./img/pictogramas/Rowing,_Rio_2016.png",
     "sport": "Rowing"
   },
   {
-    "img": "https://drive.google.com/file/d/1Rl28wagNVEy-1LCLZaZFfEI3PjGvc_Uk/view?usp=sharing",
+    "img": "./img/pictogramas/Rugby_Sevens,_Rio_2016.png",
     "sport": "Rugby Sevens"
   },
   {
-    "img": "https://drive.google.com/file/d/1zqX4YEgvVNraFr4NEC53Hxy_DQXZAeW8/view?usp=sharing",
+    "img": "./img/pictogramas/Sailing,_Rio_2016.png",
     "sport": "Sailing"
   },
   {
-    "img": "https://drive.google.com/file/d/12dfgsP5CEl793ipSB4uvaOAoApxWAkOt/view?usp=sharing",
+    "img": "./img/pictogramas/Shooting,_Rio_2016.png",
     "sport": "Shooting"
   },
   {
-    "img": "https://drive.google.com/file/d/1Xm3bzM1O9tvc71tyUeYBqUwG7OHgmPdW/view?usp=sharing",
+    "img": "./img/pictogramas/Swimming,_Rio_2016.png",
     "sport": "Swimming"
   },
   {
-    "img": "https://drive.google.com/file/d/1Dyx5KcmAjyaMPmkDrOf_Z4cyEjVCJEdc/view?usp=sharing",
+    "img": "./img/pictogramas/Synchronised_Swimming,_Rio_2016.png",
     "sport": "Synchronized Swimming"
   },
   {
-    "img": "https://drive.google.com/file/d/1MsNBQyxegTLZaR4M2EuoZbu-rK4qVqdA/view?usp=sharing",
+    "img": "./img/pictogramas/Table_Tennis,_Rio_2016.png",
     "sport": "Table Tennis"
   },
   {
-    "img": "https://drive.google.com/file/d/1od5qyGgT8T5-PRMd7lVmvgzYGfoy50-y/view?usp=sharing",
+    "img": "./img/pictogramas/Tennis,_Rio_2016.png",
+    "sport": "Tennis"
+  },
+  {
+    "img": "./img/pictogramas/Taekwondo,_Rio_2016.png",
     "sport": "Taekwondo"
   },
   {
-    "img": "https://drive.google.com/file/d/1IbnnGBrqyvYGPFLHmmRtpeRqh-Vo9H7G/view?usp=sharing",
+    "img": "./img/pictogramas/Trampolining,_Rio_2016.png",
+    "sport": "Trampolining"
+  },
+  {
+    "img": "./img/pictogramas/Triathlon,_Rio_2016.png",
     "sport": "Triathlon"
   },
   {
-    "img": "https://drive.google.com/file/d/1x5OL6yi-f-ScLRppi2xVRf2ysBrkNfOo/view?usp=sharing",
+    "img": "./img/pictogramas/Volleyball,_Rio_2016.png",
     "sport": "Volleyball"
   },
   {
-    "img": "https://drive.google.com/file/d/1A-5O998wqPxmKdbn-678l1hpjcV359UJ/view?usp=sharing",
+    "img": "./img/pictogramas/Water_Polo,_Rio_2016.png",
     "sport": "Water Polo"
   },
   {
-    "img": "https://drive.google.com/file/d/19OVvEL-gYtzbL-Yra6-anUiqhAVCCUv5/view?usp=sharing",
+    "img": "./img/pictogramas/Weightlifting,_Rio_2016.png",
     "sport": "Weightlifting"
   },
   {
-    "img": "https://drive.google.com/file/d/11GTxzcurjOUWJfehyaVingE2U349CI7m/view?usp=sharing",
+    "img": "./img/pictogramas/Wrestling,_Rio_2016.png",
     "sport": "Wrestling"
-  }]
+  }]}

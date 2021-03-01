@@ -1,30 +1,31 @@
 import { 
 countries,    
-searchCountries,
+// searchCountries,
 athletesGold,
 searchAthletes,
 orderAlpha,
 athletesAll,
 inputTeam,
 inputGenderFilter,
-
+sports,
 } from './data.js';
-import athletes from './data/athletes/athletes.js';
 
+import athletes from './data/athletes/athletes.js';
 import data from './data/athletes/athletes.js';
 import dataFlag from './data/athletes/flag.js';
+import pictograms from './data/athletes/pictograms.js';
 
 addEventListener('DOMContentLoaded', () => {
 const dataRio = data.athletes.map(athletes =>athletes) //data athletes
 const dataCountriesFlag = dataFlag.map(dataFlag => dataFlag) //data countries flag
+const dataPictograms = pictograms.pictograms.map(pictograms => pictograms);
 const dataCountriesNoc = data.athletes.map(athletes => athletes.noc) //data athletes noc
 const arrayMedalGold = dataRio.filter(athletes => athletes.medal === 'Gold')
 const sport = dataRio.map(athletes => athletes.sport)
 const dataCountriesTeam = data.athletes.map(athletes => athletes.team) //data athletes team
 
-
 countries(dataCountriesNoc,dataCountriesFlag);
-searchCountries(dataCountriesFlag);
+// searchCountries(dataCountriesFlag);
 athletesGold(arrayMedalGold)
 searchAthletes(dataRio,arrayMedalGold)
 filterSport(sport,dataRio)
@@ -32,6 +33,8 @@ filterAlpha(arrayMedalGold)
 filterTeam(dataCountriesTeam,dataRio)
 inputTeam(dataCountriesTeam);
 filterGender(dataRio);
+
+sports(dataPictograms);
   
 })
 // Filter Sport
