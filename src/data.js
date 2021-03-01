@@ -1,75 +1,77 @@
 
+
 const viewCountries = document.getElementById('mainCountries');
 const viewAthletes = document.getElementById('mainAthletes');
 const searchC = document.getElementById('searchC'); // Filtro de búsqueda de 
 const searchA = document.getElementById('searchA'); //
 const searchTeam = document.getElementById("searchTeam");
+const searchEvent = document.getElementById("searchEvent");
+const viewSports = document.getElementById("mainSports");
 
-// *** Countries
+// *** Countries prueba
 export const countries = (dataCountries,dataCountriesFlag) =>{
-  const sorted = dataCountries.sort();
-  const unique = sorted.filter((value,index) => {
-      return value != sorted[index + 1];
-  });
 
-  let elementos = '';
-    
-  for (let i = 0; i < unique.length; i++) {
-      for (let f = 0; f < dataCountriesFlag.length; f++) {    
-          if (dataCountriesFlag[f].alpha3Code.indexOf(unique[i])!== -1) {
-        //   console.log(dataCountriesFlag);
-          elementos += `
-          <article class="card">
-          <div class="card-content">
-              <img src=${dataCountriesFlag[f].flag} alt="" class="img-fluid">  
-              <h4>${dataCountriesFlag[f].name}</h4>
-              <!--<h4>${dataCountriesFlag[f].alpha3Code}</h4>-->
-              <!--<h4>${unique[i]}</h4>-->
-          </div>
-          </article>
-          `
-      } 
-  } 
-  
-}
-viewCountries.innerHTML = elementos;
-}
+    const unique = [...new Set(dataCountries)]
+    const alpha3Code = dataCountriesFlag.map(athletes => athletes.alpha3Code)
+    let elementos = '';
+    for (let f = 0; f < dataCountriesFlag.length; f++) {    
+            if (alpha3Code.includes(unique[f])) {
+            elementos += `
+            <article class="card">
+            <div class="card-content">
+                <img src=${dataCountriesFlag[f].flag} alt="" class="img-fluid">  
+                <h4>${dataCountriesFlag[f].name}</h4>
+            </div>
+            </article>
+            ` 
+        } 
+    } 
+  viewCountries.innerHTML = elementos;
+  }
 // Filtro de busqueda Countries
 
-export const searchCountries = dataCountriesFlag => {
-    const inputSearchCountries = document.getElementById('inputSearchCountries');
+// export const searchCountries = (dataCountriesFlag) => {
+//     const inputSearchCountries = document.getElementById('inputSearchCountries');
 
-    searchC.addEventListener('keyup', e => {
-        e.preventDefault()
-        const textUser = inputSearchCountries.value.toLowerCase();
-        // console.log(textUser);
-        // console.log(typeof(textUser));
-        
-        const arraySearchCountries = dataCountriesFlag.filter(item => {
-            const itemTeam = item.name.toLowerCase();
-            console.log(itemTeam);
-            if(itemTeam.indexOf(textUser)!== -1 ){
-                 return item;
-            } 
-        })
-        viewSearchCountries(arraySearchCountries);
-    });
-}
+//     searchC.addEventListener('keyup', e => {
+//         e.preventDefault()
+//         const textUser = inputSearchCountries.value.toLowerCase();
+//         let elementos2 = '';
+//         const arraySearchCountries = dataCountriesFlag.filter((item) => {
+            
+//             const itemTeam = item.toLowerCase();
+//             console.log(itemTeam);
+            
+//             if(itemTeam.indexOf(textUser)!== -1 ){
+//                 elementos2 += `
+//                 <article class="card">
+//                     <div class="card-content">
+//                         <img src=${item.flag} alt="" class="img-fluid">  
+//                         <h4>"${item.name}"</h4>
+//                     </div>
+//                 </article>
+//                 `
+//                  return item;
+//             } 
+//         })
+//         // viewSearchCountries(arraySearchCountries);
+//     });
+// }
 
- export const viewSearchCountries = arraySearchCountries => {
-    let elementos2 = '';
-    arraySearchCountries.forEach(item => {
-        elementos2 += `
-        <article class="card">
-            <div class="card-content">
-                <img src=${item.flag} alt="" class="img-fluid">  
-                <h4>${item.name}</h4>
-            </div>
-        </article>
-        `
-    });
-        viewCountries.innerHTML = elementos2;
-}
+//  export const viewSearchCountries = arraySearchCountries => {
+//     let elementos2 = '';
+//     arraySearchCountries.forEach(item => {
+//         elementos2 += `
+//         <article class="card">
+//             <div class="card-content">
+//                 <img src=${item.flag} alt="" class="img-fluid">  
+//                 <h4>${item.name}</h4>
+//             </div>
+//         </article>
+//         `
+//     });
+//         viewCountries.innerHTML = elementos2;
+// }
 
 export const orderAlpha = (option, arrayMedalGold) => {
     
@@ -152,23 +154,76 @@ export const athletesAll = dataRio => {
         `
     });
     viewAthletes.innerHTML = elementos;
+
+    
 }
 
 export const inputTeam = (dataCountriesTeam) => {
-    
     const unique = [...new Set(dataCountriesTeam)]
-    console.log(unique);
-    
     let team = '';
     unique.forEach(item => {
         team += `
-          <option value=${item}></option>
+          <option value="${item}"></option>
         `
     });
     searchTeam.innerHTML = team;
 }
 
+export const inputGenderFilter = (genderMaleFilter, genderFemaleFilter, textGender) => {
+    const maleEvent = genderMaleFilter.map(athletes => athletes.event);
+    const femaleEvent = genderFemaleFilter.map(athletes => athletes.event);
 
+    const uniqueM = [...new Set(maleEvent)]
+    const uniqueF = [...new Set(femaleEvent)]
+   
+    
 
+    switch (textGender) {
+        case "Male":
+            inputEventFilter(uniqueM)
+            athletesAll(genderMaleFilter)
+            break;
+        case "Female":
+            inputEventFilter(uniqueF)
+            athletesAll(genderFemaleFilter)
+            break;
+        default:
+            
+      }
+}
+
+export const inputEventFilter = (unique) =>{
+    document.getElementById('event').classList.remove('hide');
+    let event = '';
+    unique.forEach(item => {
+        // const option = document.createElement('option');
+        // option.value = item;
+        // document.querySelector('#searchEvent').appendChild(option);
+        event += `
+          <option value="${item}"></option>
+        `
+    });
+    searchEvent.innerHTML = event;
+}
+
+// Sports
+export const sports = (dataPictograms) => {
+    let elementos = '';
+    dataPictograms.forEach(item => {
+        elementos += `
+        <article class="card">
+            <div class="card-content">
+                <img src="${item.img}" alt="imgSport">
+                <h4>${item.sport}</h4>
+                <p>
+                    <a href="pais.html?name=#">Mas info</a>
+                </p>
+            </div>
+        </article>
+        `
+    });
+    viewSports.innerHTML = elementos;
+}
+  
 
 
