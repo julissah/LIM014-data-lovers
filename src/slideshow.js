@@ -2,19 +2,22 @@ var slideIndex = 1;
 showSlides(slideIndex);
 
 // Next/previous controls
-function plusSlides(e) {
+function plusSlides(e){
   showSlides(slideIndex += parseInt(e.target.name))
 }
 document.getElementById('prev').addEventListener('click', plusSlides)
 document.getElementById('next').addEventListener('click', plusSlides)
-document.getElementById('slide1').addEventListener('click',currentSlide)
-document.getElementById('slide2').addEventListener('click',currentSlide)
-document.getElementById('slide3').addEventListener('click',currentSlide)
+// document.getElementById('slide1').addEventListener('click',currentSlide)
+// document.getElementById('slide2').addEventListener('click',currentSlide)
+// document.getElementById('slide3').addEventListener('click',currentSlide)
 
 // Thumbnail image controls
-function currentSlide(e) {
-  showSlides(slideIndex = parseInt(e.target.name))
-  console.log(e.target.name)
+// function currentSlide(e) {
+//   showSlides(slideIndex = parseInt(e.target.name))
+//   console.log(e.target.name)
+// }
+function currentSlide(e){
+  showSlides(slideIndex = e)
 }
 
 function showSlides(n) {
