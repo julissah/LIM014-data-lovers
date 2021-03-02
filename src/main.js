@@ -8,6 +8,8 @@ athletesAll,
 inputTeam,
 inputGenderFilter,
 sports,
+events,
+
 } from './data.js';
 
 import athletes from './data/athletes/athletes.js';
@@ -97,10 +99,24 @@ const filterGender = dataRio => {
     const genderFemaleFilter = sportFilter.filter(athletes => athletes.gender === "F")
     
     inputGenderFilter(genderMaleFilter,genderFemaleFilter, textTeam);
-    
+    filterEvent(genderMaleFilter, genderFemaleFilter,textTeam)
+    return textTeam;
   });
   }
-  
+
+  const filterEvent =(genderMaleFilter, genderFemaleFilter, textTeam) =>{
+    
+    document.getElementById("eventRio").addEventListener("change", (event) =>{
+    const textEvent = eventRio.value;
+    console.log(textEvent)
+    
+
+    events(genderMaleFilter, genderFemaleFilter, textTeam, textEvent)
+    
+      return textEvent;
+    
+    })
+  }
 
 
 
