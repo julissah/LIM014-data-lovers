@@ -15,11 +15,11 @@
       <nav class="container navbar" >
         <img src="./img/logo.png" alt="" >
         <ul class="main-nav">
-          <li class="main-nav__item"><a class="" href="#pageRio">RIO 2016</a></li> 
-          <li class="main-nav__item"><a class="" href="#pageCountries">COUNTRIES</a></li>
-          <li class="main-nav__item"><a class="" href="#pageMedals">MEDALS</a></li>
-          <li class="main-nav__item"><a class="" href="#pageSports">SPORTS</a></li>
-          <li class="main-nav__item"><a class="" href="#pageAthletes">ATHLETES</a></li>
+          <li class="main-nav__item"><a class="" id="pageRio" href="#pageRio">RIO 2016</a></li> 
+          <li class="main-nav__item"><a class="" id="pageCountries" href="#pageCountries">COUNTRIES</a></li>
+          <li class="main-nav__item"><a class="" id="pageMedals" href="#pageMedals">MEDALS</a></li>
+          <li class="main-nav__item"><a class="" id="pageSports" href="#pageSports">SPORTS</a></li>
+          <li class="main-nav__item"><a class="" id="pageAthletes" href="#pageAthletes">ATHLETES</a></li>
         </ul>
       </nav>
     </header>
@@ -27,22 +27,22 @@
     <main>
 
       <!-- Page Rio 2016 -->
-      <section id="pageRio" class="">
+      <section id="rioPage" class="pageRio" style="display: block;">
         <div class="">
             
             <div class="mySlides fade">
               <img src="./img/RIO2016/RIO2016-OLIMPYC GAMES-SIMON.BILES.svg" style="width:100%">
-              <div class="text">SIMONE BILES</div>
+              <!-- <div class="text">SIMONE BILES</div> -->
             </div>
             
             <div class="mySlides fade">
               <img src="./img/RIO2016/BOXPSOPLUMA.svg" style="width:100%">
-              <div class="text">Brazil</div>
+              <!-- <div class="text">Brazil</div> -->
             </div>
             
             <div class="mySlides fade">
               <img src="./img/RIO2016/RIO2016-OLIMPYC.GAMES-WEI.DENG.svg" style="width:100%">
-              <div class="text">Wei Deng</div>
+            <!-- <div class="text">WEI DENG</div> -->
             </div>
             
               <a class="prev" id="prev" name="-1" >&#10094;</a>
@@ -51,18 +51,18 @@
             <br>
             
             <div style="text-align:center">
-              <!-- <span class="dot" id="slide1" name="1"></span> 
+              <span class="dot" id="slide1" name="1"></span> 
               <span class="dot" id="slide2" name="2"></span> 
-              <span class="dot" id="slide3" name="3"></span>  -->
-              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" id="slide3" name="3"></span> 
+              <!-- <span class="dot" onclick="currentSlide(1)"></span>
               <span class="dot" onclick="currentSlide(2)"></span>
-              <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span> -->
             </div>
             
       </section>
 
       <!-- Page Countries -->
-      <section id="pageCountries" class="my-2">
+      <section id="countriesPage" class="my-2 pageCountries" style="display: none;">
         <!-- head -->
         <div class="container my-2 grid4">
           <form class="form-search" id="searchC">
@@ -82,7 +82,7 @@
       </section>
 
       <!-- Page Medals -->
-      <section id="pageMedals" class="my-2">
+      <section id="medalsPage" class="my-2 pageMedals" style="display: none;">
         <!-- head -->
         <h1>MEDALS</h1>
         <div class="container my-2 grid3">
@@ -96,7 +96,7 @@
       </section>
 
       <!-- Page Sports -->
-      <section id="pageSports" class="my-2">
+      <section id="sportsPage" class="my-2 pageSports"style="display: none;">
       <!-- head -->
       <h1>SPORTS</h1>
       <div class="container my-2 grid3">
@@ -110,7 +110,7 @@
       </section>
 
       <!-- Page Athletes -->
-      <section id="pageAthletes" class="my-2">
+      <section id="athletesPage" class="my-2 pageAthletes"style="display: none;">
         <!-- head -->
         <h1>ATHLETES</h1>
         <div class="container my-2 grid3">

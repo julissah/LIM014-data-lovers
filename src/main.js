@@ -15,7 +15,7 @@ import data from './data/athletes/athletes.js';
 import dataFlag from './data/athletes/flag.js';
 import pictograms from './data/athletes/pictograms.js';
 
-//addEventListener('DOMContentLoaded', () => {
+addEventListener('DOMContentLoaded', () => {
 const dataRio = data.athletes.map(athletes =>athletes) //data athletes
 const dataCountriesFlag = dataFlag.map(dataFlag => dataFlag) //data countries flag
 const dataPictograms = pictograms.pictograms.map(pictograms => pictograms);
@@ -28,14 +28,14 @@ const dataCountriesTeam = data.athletes.map(athletes => athletes.team) //data at
 countries(dataCountriesNoc,dataCountriesFlag);
 // searchCountries(dataCountriesFlag);
 athletesGold(arrayMedalGold)
-searchAthletes(dataRio,arrayMedalGold)
-filterSport(sport,dataRio)
-filterAlpha(arrayMedalGold)
-filterTeam(dataCountriesTeam,dataRio)
+searchAthletes(dataRio,arrayMedalGold);
+filterSport(sport,dataRio);
+filterAlpha(arrayMedalGold);
+filterTeam(dataCountriesTeam,dataRio);
 inputTeam(dataCountriesTeam);
 filterGender(dataRio);
 sports(dataPictograms);
-//})
+})
 
 // Filter Sport
 const filterSport = (sport,dataRio) => {
