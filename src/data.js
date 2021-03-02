@@ -15,13 +15,14 @@ export const countries = (dataCountries,dataCountriesFlag) =>{
     for (let f = 0; f < dataCountriesFlag.length; f++) {    
             if (alpha3Code.includes(unique[f])) {
             elementos += `
-            <article class="card">
-            <div class="card-content">
-                <img src=${dataCountriesFlag[f].flag} alt="" class="img-fluid">  
-                <h4>${dataCountriesFlag[f].name}</h4>
+            <div class="product">
+                <div class="product-card">
+                    <img src="${dataCountriesFlag[f].flag}" class="product-img" alt="">
+                    <a class="price">${dataCountriesFlag[f].name}</a>                  
+                    
+                </div>
             </div>
-            </article>
-            ` 
+            `
         } 
     } 
   viewCountries.innerHTML = elementos;
@@ -93,19 +94,52 @@ export const athletesGold = arrayMedalGold => {
     let elementos = '';    
     // console.log(medalGoldAthletes);
     for (let i = 0; i < 250; i++) {
-         elementos += `
-        <article class="card">
-            <div class="card-content">
-                <img src="./img/logo.png" alt="" class="img">
-                <h4>${arrayMedalGold[i].name.toUpperCase()}</h4>
-                <p>
-                    ${arrayMedalGold[i].noc } &nbsp|&nbsp ${arrayMedalGold[i].sport.toUpperCase()}
-                </p>
-                <p>
-                    <a href="pais.html?name=${arrayMedalGold[i].games}">Mas info</a>
-                </p>
+        elementos += `
+        <div class="product">
+            <div class="product-card">
+                <h2 class="name">${arrayMedalGold[i].name.toUpperCase()}</h2>
+                <span class="price">${arrayMedalGold[i].noc } &nbsp|&nbsp ${arrayMedalGold[i].sport.toUpperCase()}</span>
+                <a class="popup-btn">Quick View</a>
+                <img src="./img/SIMONE_BILES.webp" class="product-img" alt="">
             </div>
-        </article>
+            <div class="popup-view">
+                <div class="popup-card">
+                    <a><i class="fas fa-times close-btn"></i></a>
+                    <div class="product-img">
+                        <img src="./img/USAIN BOLD.webp" alt="">
+                    </div>
+                    <div class="info">
+                        <h2>${arrayMedalGold[i].name.toUpperCase()}<br>
+                        <span>${arrayMedalGold[i].team } &nbsp|&nbsp ${arrayMedalGold[i].sport.toUpperCase()}</span></h2>
+                        <h2>
+                            <span>
+                            HEIGHT: ${arrayMedalGold[i].height}<br>
+                            WEIGHT: ${arrayMedalGold[i].weight}<br>
+                            AGE: ${arrayMedalGold[i].age}<br>
+                            GENDER: ${arrayMedalGold[i].gender}
+                            </span>
+                        </h2>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>MEDALS</th>
+                                </tr>
+                                <tr>
+                                    <th>EVENT</th>
+                                    <th>MEDAL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>${arrayMedalGold[i].event}</p></td>
+                                    <td><p>${arrayMedalGold[i].medal}</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
         `
     }
     viewAthletes.innerHTML = elementos;
@@ -137,19 +171,55 @@ export const athletesAll = dataRio => {
     let elementos = '';
     dataRio.forEach(item => {
         elementos += `
-        <article class="card">
-            <div class="card-content">
-                <img src="./img/logo.png" alt="" class="img">
-                <h4>${item.name.toUpperCase()}</h4>
-                <p>
-                    ${item.noc} &nbsp|&nbsp ${item.sport.toUpperCase()}
-                </p>
-                <p>
-                    <a href="pais.html?name=${item.games}">Mas info</a>
-                </p>
+        <div class="product">
+            <div class="product-card">
+                <h2 class="name">${item.name.toUpperCase()}</h2>
+                <span class="price">${item.noc} &nbsp|&nbsp ${item.sport.toUpperCase()}</span>
+                <a class="popup-btn">Quick View</a>
+                <img src="./img/SIMONE_BILES.webp" class="product-img" alt="">
             </div>
-        </article>
+            <div class="popup-view">
+                <div class="popup-card">
+                    <a><i class="fas fa-times close-btn"></i></a>
+                    <div class="product-img">
+                        <img src="./img/USAIN BOLD.webp" alt="">
+                    </div>
+                    <div class="info">
+                        <h2>${item.name.toUpperCase()}<br>
+                        <span>${item.team } &nbsp|&nbsp ${item.sport.toUpperCase()}</span></h2>
+                        <h2>
+                            <span>
+                            HEIGHT: ${item.height}<br>
+                            WEIGHT: ${item.weight}<br>
+                            AGE: ${item.age}<br>
+                            GENDER: ${item.gender}
+                            </span>
+                        </h2>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>MEDALS</th>
+                                </tr>
+                                <tr>
+                                    <th>EVENT</th>
+                                    <th>MEDAL</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><p>${item.event}</p></td>
+                                    <td><p>${item.medal}</p></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
         `
+
     });
     viewAthletes.innerHTML = elementos;
 
@@ -208,17 +278,15 @@ export const inputEventFilter = (unique) =>{
 export const sports = (dataPictograms) => {
     let elementos = '';
     dataPictograms.forEach(item => {
-        elementos += `
-        <article class="card">
-            <div class="card-content">
-                <img src="${item.img}" alt="imgSport">
-                <h4>${item.sport}</h4>
-                <p>
-                    <a href="pais.html?name=#">Mas info</a>
-                </p>
+        elementos += `  
+            <div class="product">
+                <div class="product-card">
+                    <img src="${item.img}" class="product-img" alt="">
+                    <a class="price">${item.sport}</a>                  
+                    
+                </div>
             </div>
-        </article>
-        `
+            `
     });
     viewSports.innerHTML = elementos;
 }
@@ -243,5 +311,33 @@ export const events = (genderMaleFilter, genderFemaleFilter, textTeam, textEvent
       }
 }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

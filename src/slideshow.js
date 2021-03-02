@@ -36,3 +36,4 @@ function showSlides(n) {
   console.log([slideIndex-1])
   dots[slideIndex-1].className += " active";
 }
+
