@@ -68,7 +68,7 @@ function medalsPage() {
   document.querySelector(".pageRio").style.display = "none";
 }
 function sportsPage() {
-  document.querySelector("#pageMedals").style.display = "none";
+  document.querySelector(".pageMedals").style.display = "none";
   document.querySelector(".pageAthletes").style.display = "none";  
   document.querySelector(".pageCountries").style.display = "none";
   document.querySelector(".pageSports").style.display = "block";
