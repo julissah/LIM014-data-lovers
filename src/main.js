@@ -8,6 +8,8 @@ athletesAll,
 inputTeam,
 inputGenderFilter,
 sports,
+events,
+
 } from './data.js';
 
 import athletes from './data/athletes/athletes.js';
@@ -15,7 +17,7 @@ import data from './data/athletes/athletes.js';
 import dataFlag from './data/athletes/flag.js';
 import pictograms from './data/athletes/pictograms.js';
 
-//addEventListener('DOMContentLoaded', () => {
+addEventListener('DOMContentLoaded', () => {
 const dataRio = data.athletes.map(athletes =>athletes) //data athletes
 const dataCountriesFlag = dataFlag.map(dataFlag => dataFlag) //data countries flag
 const dataPictograms = pictograms.pictograms.map(pictograms => pictograms);
@@ -35,7 +37,7 @@ filterTeam(dataCountriesTeam,dataRio)
 inputTeam(dataCountriesTeam);
 filterGender(dataRio);
 sports(dataPictograms);
-//})
+})
 
 // Filter Sport
 const filterSport = (sport,dataRio) => {
@@ -97,10 +99,24 @@ const filterGender = dataRio => {
     const genderFemaleFilter = sportFilter.filter(athletes => athletes.gender === "F")
     
     inputGenderFilter(genderMaleFilter,genderFemaleFilter, textTeam);
-    
+    filterEvent(genderMaleFilter, genderFemaleFilter,textTeam)
+    return textTeam;
   });
   }
-  
+
+  const filterEvent =(genderMaleFilter, genderFemaleFilter, textTeam) =>{
+    
+    document.getElementById("eventRio").addEventListener("change", (event) =>{
+    const textEvent = eventRio.value;
+    console.log(textEvent)
+    
+
+    events(genderMaleFilter, genderFemaleFilter, textTeam, textEvent)
+    
+      return textEvent;
+    
+    })
+  }
 
 
 

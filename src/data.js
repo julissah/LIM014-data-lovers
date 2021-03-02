@@ -1,5 +1,3 @@
-
-
 const viewCountries = document.getElementById('mainCountries');
 const viewAthletes = document.getElementById('mainAthletes');
 const searchC = document.getElementById('searchC'); // Filtro de búsqueda de 
@@ -169,14 +167,13 @@ export const inputTeam = (dataCountriesTeam) => {
     searchTeam.innerHTML = team;
 }
 
+// Filtro de genero dentro de sección Athletes 
 export const inputGenderFilter = (genderMaleFilter, genderFemaleFilter, textGender) => {
     const maleEvent = genderMaleFilter.map(athletes => athletes.event);
     const femaleEvent = genderFemaleFilter.map(athletes => athletes.event);
 
     const uniqueM = [...new Set(maleEvent)]
     const uniqueF = [...new Set(femaleEvent)]
-   
-    
 
     switch (textGender) {
         case "Male":
@@ -192,6 +189,7 @@ export const inputGenderFilter = (genderMaleFilter, genderFemaleFilter, textGend
       }
 }
 
+// Filtro del evento en la sección de Athletes
 export const inputEventFilter = (unique) =>{
     document.getElementById('event').classList.remove('hide');
     let event = '';
@@ -223,6 +221,26 @@ export const sports = (dataPictograms) => {
         `
     });
     viewSports.innerHTML = elementos;
+}
+
+export const events = (genderMaleFilter, genderFemaleFilter, textTeam, textEvent) => {
+    console.log(textTeam)
+
+    switch (textTeam) {
+        case "Male":
+                const eventFilterM = genderMaleFilter.filter(athletes => athletes.event === textEvent)
+                console.log(eventFilterM);
+                athletesAll(eventFilterM);
+            break;
+        case "Female":
+                const eventFilterF = genderFemaleFilter.filter(athletes => athletes.event === textEvent)
+                console.log(eventFilterF);
+                athletesAll(eventFilterF);
+            break;
+        default:
+            console.log("vacioooo")
+
+      }
 }
   
 
