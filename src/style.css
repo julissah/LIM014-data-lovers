@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
     --box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     --border-radius: 0.375rem;
@@ -16,7 +18,7 @@
 body {
     font-family: 'Lato', sans-serif;
     width: 100%;
-    background-color: #bebebe;
+    background-color: #e0d7d7;
 }
 
 .hide {
@@ -52,6 +54,7 @@ body {
 .img-fluid {
     width: 100%; /*100% permitira que se respete el ancho del contenedor*/
 }
+
 .main-nav {
     margin-top: 10px;
     list-style: none; 
@@ -131,6 +134,7 @@ body {
     border-bottom-left-radius: var(--border-radius);
     border-bottom-right-radius: var(--border-radius);
     height: 7rem;
+    width: auto;
 }
 
 
@@ -231,3 +235,83 @@ body {
   @media only screen and (max-width: 300px) {
     .prev, .next,.text {font-size: 11px}
   }
+
+  /* // SECTION PRINCIPALL PAGINA  */
+
+  .section-main h1, .sportsPage h1, .countriesPage h1 {
+    color: #717171;
+    text-shadow: 20px #000000;
+    font-size: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-top: 110px;    
+    padding-bottom: 100px;
+}
+
+.section-main h1 {
+    text-align: left;
+    padding-left: 60px;
+}
+
+.countriesPage h1 {
+    text-align: center;
+    padding-left: 50px;
+}
+.medalsPage h1 {
+    text-align: center;
+    padding-left: 450px;
+    color: #717171;
+    text-shadow: 20px #000000;
+    font-size: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-top: 35px;    
+    padding-bottom: 130px;
+}
+
+.sportsPage h1 {
+    text-align: center;
+    padding-left: 320px;
+}
+.countriesPage h1 {
+    text-align: center;
+    padding-left: 300px;
+}
+
+.athletesPages {
+    width: 100%;
+    height: 50%;
+    background: url('./img/RIO2016/Simone-usa.svg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.sportsPage {
+    width: 100%;
+    height: 50%;
+    background: url('./img/RIO2016/felixRio.svg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.medalsPage {
+    width: 100%;
+    height: 50%;
+    background: url('./img/RIO2016/tenis.japon.svg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.countriesPage {
+    width: 100%;
+    height: 50%;
+    background: url('./img/RIO2016/basketball.svg'); 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+    

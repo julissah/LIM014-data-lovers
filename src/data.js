@@ -17,7 +17,7 @@ export const countries = (dataCountries,dataCountriesFlag) =>{
             elementos += `
             <article class="card">
             <div class="card-content">
-                <img src=${dataCountriesFlag[f].flag} alt="" class="img-fluid">  
+                <img src=${dataCountriesFlag[f].flag} alt="" class="img-fluid" alt="Avatar">  
                 <h4>${dataCountriesFlag[f].name}</h4>
             </div>
             </article>

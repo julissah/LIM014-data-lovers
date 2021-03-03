@@ -31,7 +31,7 @@
         <div class="">
             
             <div class="mySlides fade">
-              <img src="./img/RIO2016/RIO2016-OLIMPYC GAMES-SIMON.BILES.svg" style="width:100%">
+              <img src="./img/RIO2016/SimoneBiles.svg" style="width:100%">
               <!-- <div class="text">SIMONE BILES</div> -->
             </div>
             
@@ -41,8 +41,8 @@
             </div>
             
             <div class="mySlides fade">
-              <img src="./img/RIO2016/RIO2016-OLIMPYC.GAMES-WEI.DENG.svg" style="width:100%">
-            <!-- <div class="text">WEI DENG</div> -->
+              <img src="./img/RIO2016/WeiDeng .svg" style="width:100%">
+              <!-- <div class="text">WEI DENG</div> -->
             </div>
             
               <a class="prev" id="prev" name="-1" >&#10094;</a>
@@ -64,6 +64,9 @@
       <!-- Page Countries -->
       <section id="countriesPage" class="my-2 pageCountries" style="display: none;">
         <!-- head -->
+        <div class="countriesPage">
+          <br><h1>FIND THE CHAMPION<br>COUNTRIES</h1><br>
+        </div>
         <div class="container my-2 grid4">
           <form class="form-search" id="searchC">
             <input type="text" placeholder=" Pais" id="inputSearchCountries"><i class="fas fa-search"></i>
@@ -84,7 +87,9 @@
       <!-- Page Medals -->
       <section id="medalsPage" class="my-2 pageMedals" style="display: none;">
         <!-- head -->
-        <h1>MEDALS</h1>
+        <div class="medalsPage">
+          <br><h1>FIND THE BEST TOP <br>MEDALS</h1><br>
+        </div> 
         <div class="container my-2 grid3">
           <form class="form-search" id="searchM">
             <input type="text" placeholder=" Medals" id="inputSearchMedals"><i class="fas fa-search"></i>
@@ -98,7 +103,9 @@
       <!-- Page Sports -->
       <section id="sportsPage" class="my-2 pageSports"style="display: none;">
       <!-- head -->
-      <h1>SPORTS</h1>
+      <div class="sportsPage">
+        <br><h1>FIND YOUR FAVORITE <br>SPORTS</h1><br>
+      </div>
       <div class="container my-2 grid3">
         <form class="form-search" id="searchS">
           <input type="text" placeholder=" Sports" id="inputSearchSports"><i class="fas fa-search"></i>
@@ -112,7 +119,12 @@
       <!-- Page Athletes -->
       <section id="athletesPage" class="my-2 pageAthletes"style="display: none;">
         <!-- head -->
-        <h1>ATHLETES</h1>
+        
+        <section id="selectors" class="section-main">
+        <div class="athletesPages">
+          <br>
+           <h1>FIND YOUR FAVORITE<br>ATHLETE</h1>
+        </div> 
         <div class="container my-2 grid3">
           <form class="form-search" id="searchA">  
             <input type="text" placeholder=" Athletes" id="inputSearchAthletes"><i class="fas fa-search"></i>
@@ -123,14 +135,14 @@
             </select>
           </form>
                   
-        <section id="">
+        <section id="rioTeam">
             <input type="search" id="teamRio" list="searchTeam" placeholder="Search Team" >
             <datalist id="searchTeam">
               <option value="All teams" ></option>
             </datalist>
         </section>
 
-        <section id="selectors">
+        <section id="selectores">
           <input type="search" id="sportRio" list="search" placeholder="Search Sport">
           <datalist id="search">
             <option value="All"></option>
@@ -173,7 +185,7 @@
         <section id="gender" class="gender hide">
           <input type="search" id="genderRio" list="searchGender" placeholder="Search Gender" >
           <datalist id="searchGender">
-            <option value="Male" ></option>
+            <option value="Male" ><i class="fas fa-male"></i></option>
             <option value="Female" ></option>
           </datalist>
         </section>
@@ -184,11 +196,12 @@
             <option value="All" ></option>
           </datalist>
         </section>
-          
+        </div>
         </div>
         <!-- main -->
         <div id="mainAthletes" class="container grid">
         </div>
+        </section>
       </section>
 
     </main>

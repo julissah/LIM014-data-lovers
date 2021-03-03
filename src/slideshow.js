@@ -37,6 +37,7 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+// OCULTAR & MOSTRAR PAGES DE LAS NAVBAR
 pageRio.addEventListener("click", rioPage);
 pageMedals.addEventListener("click", medalsPage);
 pageCountries.addEventListener("click", countriesPage);
