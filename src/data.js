@@ -17,9 +17,9 @@ export const countries = (dataCountries,dataCountriesFlag) =>{
             elementos += `
             <div class="product">
                 <div class="product-card">
+                    <h2 class="price">${dataCountriesFlag[f].name}</h2>                  
+                    <a class="popup-btn">VIEW MORE</a>
                     <img src="${dataCountriesFlag[f].flag}" class="product-img" alt="">
-                    <a class="price">${dataCountriesFlag[f].name}</a>                  
-                    
                 </div>
             </div>
             `
@@ -99,31 +99,28 @@ export const athletesGold = arrayMedalGold => {
             <div class="product-card">
                 <h2 class="name">${arrayMedalGold[i].name.toUpperCase()}</h2>
                 <span class="price">${arrayMedalGold[i].noc } &nbsp|&nbsp ${arrayMedalGold[i].sport.toUpperCase()}</span>
-                <a class="popup-btn">Quick View</a>
+                <a class="popup-btn">VIEW MORE</a>
                 <img src="./img/SIMONE_BILES.webp" class="product-img" alt="">
             </div>
             <div class="popup-view">
                 <div class="popup-card">
                     <a><i class="fas fa-times close-btn"></i></a>
                     <div class="product-img">
-                        <img src="./img/USAIN BOLD.webp" alt="">
+                        <img src="./img/SIMONE_BILES.webp" alt="">
                     </div>
                     <div class="info">
                         <h2>${arrayMedalGold[i].name.toUpperCase()}<br>
                         <span>${arrayMedalGold[i].team } &nbsp|&nbsp ${arrayMedalGold[i].sport.toUpperCase()}</span></h2>
-                        <h2>
-                            <span>
-                            HEIGHT: ${arrayMedalGold[i].height}<br>
-                            WEIGHT: ${arrayMedalGold[i].weight}<br>
-                            AGE: ${arrayMedalGold[i].age}<br>
+                        
+                            <p>
+                            HEIGHT: ${arrayMedalGold[i].height}<br><br>
+                            WEIGHT: ${arrayMedalGold[i].weight}<br><br>
+                            AGE: ${arrayMedalGold[i].age}<br><br>
                             GENDER: ${arrayMedalGold[i].gender}
-                            </span>
-                        </h2>
+                            </p><br>
+                        
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th>MEDALS</th>
-                                </tr>
                                 <tr>
                                     <th>EVENT</th>
                                     <th>MEDAL</th>
@@ -140,7 +137,9 @@ export const athletesGold = arrayMedalGold => {
                 </div>
             </div>
         </div>
-        `
+        `;
+
+        eventModal();
     }
     viewAthletes.innerHTML = elementos;
     // console.log(arrayMedalGold);
@@ -161,8 +160,10 @@ export const searchAthletes = (dataRio,arrayMedalGold) => {
         })
         if (arrayTeam.length == 2023) {    
             athletesGold(arrayMedalGold);
+            eventModal();
         } else {
             athletesAll(arrayTeam);
+            eventModal();
         }
     });
  }
@@ -175,31 +176,27 @@ export const athletesAll = dataRio => {
             <div class="product-card">
                 <h2 class="name">${item.name.toUpperCase()}</h2>
                 <span class="price">${item.noc} &nbsp|&nbsp ${item.sport.toUpperCase()}</span>
-                <a class="popup-btn">Quick View</a>
+                <a class="popup-btn">VIEW MORE</a>
                 <img src="./img/SIMONE_BILES.webp" class="product-img" alt="">
             </div>
             <div class="popup-view">
                 <div class="popup-card">
                     <a><i class="fas fa-times close-btn"></i></a>
                     <div class="product-img">
-                        <img src="./img/USAIN BOLD.webp" alt="">
+                        <img src="./img/SIMONE_BILES.webp" alt="">
                     </div>
                     <div class="info">
                         <h2>${item.name.toUpperCase()}<br>
                         <span>${item.team } &nbsp|&nbsp ${item.sport.toUpperCase()}</span></h2>
-                        <h2>
-                            <span>
-                            HEIGHT: ${item.height}<br>
-                            WEIGHT: ${item.weight}<br>
-                            AGE: ${item.age}<br>
+                        
+                            <p>
+                            HEIGHT: ${item.height}<br><br>
+                            WEIGHT: ${item.weight}<br><br>
+                            AGE: ${item.age}<br><br>
                             GENDER: ${item.gender}
-                            </span>
-                        </h2>
+                            </p><br>
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th>MEDALS</th>
-                                </tr>
                                 <tr>
                                     <th>EVENT</th>
                                     <th>MEDAL</th>
@@ -218,7 +215,8 @@ export const athletesAll = dataRio => {
         </div>
 
     
-        `
+        `;
+        eventModal();
 
     });
     viewAthletes.innerHTML = elementos;
@@ -312,6 +310,35 @@ export const events = (genderMaleFilter, genderFemaleFilter, textTeam, textEvent
 }
   
 
+export const eventModal = () => {
+    // card + modal
+    var popupViews = document.querySelectorAll('.popup-view');
+    var popupBtns = document.querySelectorAll('.popup-btn');
+    var closeBtns = document.querySelectorAll('.close-btn');
+    
+    //javascript for quick view button
+    var popup = function(popupClick){
+      popupViews[popupClick].classList.add('active');
+    }
+    
+    popupBtns.forEach((popupBtn, i) => {
+      popupBtn.addEventListener("click", () => {
+        popup(i);
+      });
+    });
+    
+    //javascript for close button
+    closeBtns.forEach((closeBtn) => {
+      closeBtn.addEventListener("click", () => {
+        popupViews.forEach((popupView) => {
+          popupView.classList.remove('active');
+        });
+      });
+    });
+    
+    }
+    
+    
 
 
 

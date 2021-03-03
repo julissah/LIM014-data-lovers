@@ -17,13 +17,13 @@
     font-family: 'Lato', sans-serif;
     width: 100%;
     background-color: #000000;
-}
+} */
 
 .hide {
     display: none;
 }
 
-.container {
+/* .container {
     margin-left: auto;
     margin-right: auto;
     width: 85%;
@@ -86,7 +86,7 @@
     opacity: 0.5;
 }
 
-.form-search input {
+.form-search input, select {
     border: none;
     outline: none; /*Retira el borde negro del input al momento de hacer click*/
     margin-left: 1rem;
@@ -232,10 +232,28 @@
     .prev, .next,.text {font-size: 11px}
   }
 
+  /* table */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 10px;  
+    letter-spacing: 2px;
+  }
+  
+  th,tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
 
+/* fin table */
 
-
-
+  
   
   .content{
     position: relative;
@@ -244,8 +262,29 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
   }
+
+  .content .filter-card{
+    z-index: 1;
+    background: #1D212B;
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+  }
+
+  .content .filter-alpha{
+    z-index: 1;
+    background: #1D212B;
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+    
+  }
+
 
 
 
@@ -278,7 +317,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #151515;
+    background: #bebebe;
   }
   
   .container{
@@ -293,16 +332,16 @@
   
   /*Styles for product card*/
   
-  .form-search {
+  /* .form-search {
       z-index: 5;
       position:absolute;
-  }
+  } */
   .product .product-card{
     z-index: 1;
     background: #1D212B;
     position: relative;
     width: 250px;
-    height: 300px;
+    height: 400px;
     margin: 20px;
     border-radius: 10px;
   }
@@ -348,7 +387,7 @@
     width: 100%;
     text-align: center;
     bottom: 80px;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 300;
   }
   
@@ -429,7 +468,7 @@
     width: 55%;
     height: 100%;
     box-sizing: border-box;
-    padding: 40px;
+    padding: 20px;
     border-radius: 10px;
   }
   
@@ -513,7 +552,7 @@
     .product .popup-card .info{
       width: 100%;
       height: auto;
-      padding: 20px;
+      padding: 15px;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }

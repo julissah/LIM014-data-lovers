@@ -1,4 +1,5 @@
 import { 
+  eventModal,
 countries,    
 // searchCountries,
 athletesGold,
@@ -38,31 +39,8 @@ inputTeam(dataCountriesTeam);
 filterGender(dataRio);
 sports(dataPictograms);
 
+eventModal();
 
-// card + modal
-var popupViews = document.querySelectorAll('.popup-view');
-var popupBtns = document.querySelectorAll('.popup-btn');
-var closeBtns = document.querySelectorAll('.close-btn');
-
-//javascript for quick view button
-var popup = function(popupClick){
-  popupViews[popupClick].classList.add('active');
-}
-
-popupBtns.forEach((popupBtn, i) => {
-  popupBtn.addEventListener("click", () => {
-    popup(i);
-  });
-});
-
-//javascript for close button
-closeBtns.forEach((closeBtn) => {
-  closeBtn.addEventListener("click", () => {
-    popupViews.forEach((popupView) => {
-      popupView.classList.remove('active');
-    });
-  });
-});
 
 
 
@@ -81,9 +59,11 @@ const filterSport = (sport,dataRio) => {
   if(sportUser == true) {
     const sportFilter = dataRio.filter(athletes => athletes.sport === textSport) 
     athletesAll(sportFilter);
+    eventModal();
     
   } else {
     athletesAll(dataRio);
+    eventModal();
   }
   return textSport;
 });
@@ -96,6 +76,7 @@ const filterAlpha = (arrayMedalGold) => {
   alpha.addEventListener("change", (e) => {
     const arrayOrder = e.target.value;
     orderAlpha(arrayOrder, arrayMedalGold);
+    eventModal();
   });
 }
 
@@ -109,8 +90,10 @@ const filterTeam = (dataCountriesTeam,dataRio) => {
     if(teamUser == true) {
       const teamFilter = dataRio.filter(athletes => athletes.team === textTeam)
       athletesAll(teamFilter);
+      eventModal();
     } else {
       athletesAll(dataRio);
+      eventModal();
     }
     return textTeam;
   });
@@ -132,6 +115,7 @@ const filterGender = dataRio => {
     
     inputGenderFilter(genderMaleFilter,genderFemaleFilter, textTeam);
     filterEvent(genderMaleFilter, genderFemaleFilter,textTeam)
+    eventModal();
     return textTeam;
   });
   }
@@ -144,6 +128,7 @@ const filterGender = dataRio => {
     
 
     events(genderMaleFilter, genderFemaleFilter, textTeam, textEvent)
+    eventModal();
     
       return textEvent;
     

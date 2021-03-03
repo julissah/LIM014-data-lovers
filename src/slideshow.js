@@ -37,3 +37,51 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 
+pageRio.addEventListener("click", rioPage);
+pageMedals.addEventListener("click", medalsPage);
+pageCountries.addEventListener("click", countriesPage);
+pageAthletes.addEventListener("click", athletesPage);
+pageSports.addEventListener("click", sportsPage);
+
+
+function rioPage() {
+    document.querySelector(".pageRio").style.display = "block";
+    document.querySelector(".pageMedals").style.display = "none";
+    document.querySelector(".pageCountries").style.display = "none";
+    document.querySelector(".pageSports").style.display = "none";
+    document.querySelector(".pageAthletes").style.display = "none";
+}
+
+function athletesPage() {
+  document.querySelector(".pageAthletes").style.display = "block";
+  document.querySelector(".pageMedals").style.display = "none";
+  document.querySelector(".pageCountries").style.display = "none";
+  document.querySelector(".pageSports").style.display = "none";
+  document.querySelector(".pageRio").style.display = "none";
+}
+
+function medalsPage() {
+  document.querySelector(".pageMedals").style.display = "block";
+  document.querySelector(".pageAthletes").style.display = "none";  
+  document.querySelector(".pageCountries").style.display = "none";
+  document.querySelector(".pageSports").style.display = "none";
+  document.querySelector(".pageRio").style.display = "none";
+}
+function sportsPage() {
+  document.querySelector(".pageMedals").style.display = "none";
+  document.querySelector(".pageAthletes").style.display = "none";  
+  document.querySelector(".pageCountries").style.display = "none";
+  document.querySelector(".pageSports").style.display = "block";
+  document.querySelector(".pageRio").style.display = "none";
+}
+
+function countriesPage() {
+  document.querySelector(".pageMedals").style.display = "none";
+  document.querySelector(".pageAthletes").style.display = "none";  
+  document.querySelector(".pageCountries").style.display = "block";
+  document.querySelector(".pageSports").style.display = "none";
+  document.querySelector(".pageRio").style.display = "none";
+}
+
+
+
