@@ -5,10 +5,13 @@ const searchA = document.getElementById('searchA'); //
 const searchTeam = document.getElementById("searchTeam");
 const searchEvent = document.getElementById("searchEvent");
 const viewSports = document.getElementById("mainSports");
+const product = document.querySelector(".product") ;
+const popupViews = document.querySelector(".popup-view");
+const closeBtns = document.querySelector(".close-btn");
+
 
 // *** Countries prueba
 export const countries = (dataCountries,dataCountriesFlag) =>{
-
     const unique = [...new Set(dataCountries)]
     const alpha3Code = dataCountriesFlag.map(athletes => athletes.alpha3Code)
     let elementos = '';
@@ -72,83 +75,52 @@ export const countries = (dataCountries,dataCountriesFlag) =>{
 //         viewCountries.innerHTML = elementos2;
 // }
 
-export const orderAlpha = (option, arrayMedalGold) => {
-    
+export const orderAlpha = (option, dataRio) => {
+    console.log(option)
     switch (option) {
       case "1":
-        arrayMedalGold.sort((a, b) => a.name.localeCompare(b.name));
-        athletesGold(arrayMedalGold);
+        dataRio.sort((a, b) => a.name.localeCompare(b.name));
+        console.log(dataRio)
+        athletesAll(dataRio);
         // arrayMedalGold.sort;
         break;
-
       default:
-        arrayMedalGold.sort((a, b) => a.name.localeCompare(b.name));
-        const reversed = arrayMedalGold.reverse();
-        athletesGold(reversed)
+        dataRio.sort((a, b) => a.name.localeCompare(b.name));
+        const reversed = dataRio.reverse();
+        athletesAll(reversed)
     }
-    return arrayMedalGold;
+    return dataRio;
   };
 
 // *** Athletes
-export const athletesGold = arrayMedalGold => {
-    let elementos = '';    
-    // console.log(medalGoldAthletes);
-    for (let i = 0; i < 250; i++) {
-        elementos += `
-        <div class="product">
-            <div class="product-card">
-                <h2 class="name">${arrayMedalGold[i].name.toUpperCase()}</h2>
-                <span class="price">${arrayMedalGold[i].noc } &nbsp|&nbsp ${arrayMedalGold[i].sport.toUpperCase()}</span>
-                <a class="popup-btn">VIEW MORE</a>
-                <img src="./img/SIMONE_BILES.webp" class="product-img" alt="">
-            </div>
-            <div class="popup-view">
-                <div class="popup-card">
-                    <a><i class="fas fa-times close-btn"></i></a>
-                    <div class="product-img">
-                        <img src="./img/SIMONE_BILES.webp" alt="">
-                    </div>
-                    <div class="info">
-                        <h2>${arrayMedalGold[i].name.toUpperCase()}<br>
-                        <span>${arrayMedalGold[i].team } &nbsp|&nbsp ${arrayMedalGold[i].sport.toUpperCase()}</span></h2>
-                        
-                            <p>
-                            HEIGHT: ${arrayMedalGold[i].height}<br><br>
-                            WEIGHT: ${arrayMedalGold[i].weight}<br><br>
-                            AGE: ${arrayMedalGold[i].age}<br><br>
-                            GENDER: ${arrayMedalGold[i].gender}
-                            </p><br>
-                        
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>EVENT</th>
-                                    <th>MEDAL</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><p>${arrayMedalGold[i].event}</p></td>
-                                    <td><p>${arrayMedalGold[i].medal}</p></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+export const athletesGold = (arrayMedalGold) => {
+    // product.innerHTML= "";
+    for (let i = 0; i < arrayMedalGold.length; i++) {
+        const div = document.createElement("div")
+        div.classList.add("product-card")
+        div.innerHTML =`
+        <h2 class="name">${arrayMedalGold[i].name.toUpperCase()}</h2>
+        <span class="price">${arrayMedalGold[i].noc } &nbsp|&nbsp ${arrayMedalGold[i].sport.toUpperCase()}</span>
+        <a class="popup-btn">VIEW MORE</a>
+        <img src="./img/SIMONE_BILES.webp" class="product-img" alt="">
         `;
-
-        eventModal();
+        product.appendChild(div);
+        const readMore = div.querySelector(".popup-btn");
+        readMore.addEventListener("click", () => {
+            console.log(popupViews)
+            popupViews.classList.add('active');
+            modal(arrayMedalGold[i]);
+        });
     }
-    viewAthletes.innerHTML = elementos;
-    // console.log(arrayMedalGold);
-}
+     return athletesGold;
+   }
 
-export const searchAthletes = (dataRio,arrayMedalGold) => {
+   export const searchAthletes = (dataRio,arrayMedalGold) => {
     const inputSearchAthletes = document.getElementById('inputSearchAthletes');
     searchA.addEventListener('keyup', e => {
         e.preventDefault()
+        product.innerHTML= "";
+        popupViews.innerHTML= "";
         const textUser = inputSearchAthletes.value.toLowerCase();
         console.log(textUser);
         const arrayTeam = dataRio.filter(item => {
@@ -157,73 +129,94 @@ export const searchAthletes = (dataRio,arrayMedalGold) => {
             if(itemTeam.indexOf(textUser)!== -1 ){
                  return item;
             } 
-        })
+        })        
         if (arrayTeam.length == 2023) {    
             athletesGold(arrayMedalGold);
-            eventModal();
+                        
         } else {
-            athletesAll(arrayTeam);
-            eventModal();
-        }
+            athletesGold(arrayTeam);
+            // athletesAll(arrayTeam);        
+        }        
     });
  }
 
-export const athletesAll = dataRio => {
-    let elementos = '';
+
+ export const athletesAll = dataRio => {
+    product.innerHTML= "";
+    popupViews.innerHTML= "";
     dataRio.forEach(item => {
-        elementos += `
-        <div class="product">
-            <div class="product-card">
-                <h2 class="name">${item.name.toUpperCase()}</h2>
-                <span class="price">${item.noc} &nbsp|&nbsp ${item.sport.toUpperCase()}</span>
-                <a class="popup-btn">VIEW MORE</a>
-                <img src="./img/SIMONE_BILES.webp" class="product-img" alt="">
-            </div>
-            <div class="popup-view">
-                <div class="popup-card">
-                    <a><i class="fas fa-times close-btn"></i></a>
-                    <div class="product-img">
-                        <img src="./img/SIMONE_BILES.webp" alt="">
-                    </div>
-                    <div class="info">
-                        <h2>${item.name.toUpperCase()}<br>
-                        <span>${item.team } &nbsp|&nbsp ${item.sport.toUpperCase()}</span></h2>
-                        
-                            <p>
-                            HEIGHT: ${item.height}<br><br>
-                            WEIGHT: ${item.weight}<br><br>
-                            AGE: ${item.age}<br><br>
-                            GENDER: ${item.gender}
-                            </p><br>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>EVENT</th>
-                                    <th>MEDAL</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><p>${item.event}</p></td>
-                                    <td><p>${item.medal}</p></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    
+        const div = document.createElement("div")
+        div.classList.add("product-card")
+        div.innerHTML =`
+        <h2 class="name">${item.name.toUpperCase()}</h2>
+        <span class="price">${item.noc } &nbsp|&nbsp ${item.sport.toUpperCase()}</span>
+        <a class="popup-btn">VIEW MORE</a>
+        <img src="./img/SIMONE_BILES.webp" class="product-img" alt="">   
         `;
-        eventModal();
-
+        product.appendChild(div);
+        console.log(div)
+        const readMore = div.querySelector(".popup-btn");
+        readMore.addEventListener("click", () => {
+            console.log(popupViews)
+            popupViews.classList.add('active');
+            modal(item);
+        });
     });
-    viewAthletes.innerHTML = elementos;
-
-    
+    return athletesAll;
 }
 
+export const modal = cardOne => {
+    console.log("entro a modal")
+    popupViews.innerHTML= "";
+    const div = document.createElement("div")
+    div.classList.add("popup-card")
+    div.innerHTML =`
+        <a><i class="fas fa-times close-btn"></i></a>
+        <div class="product-img">
+            <img src="./img/SIMONE_BILES.webp" alt="">
+        </div>
+        <div class="info">
+            <h2>${cardOne.name.toUpperCase()}<br>
+            <span>${cardOne.team } &nbsp|&nbsp ${cardOne.sport.toUpperCase()}</span></h2>
+            <p>
+              HEIGHT: ${cardOne.height}<br><br>
+              WEIGHT: ${cardOne.weight}<br><br>
+              AGE: ${cardOne.age}<br><br>
+              GENDER: ${cardOne.gender}
+            </p><br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>EVENT</th>
+                        <th>MEDAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><p>${cardOne.event}</p></td>
+                        <td><p>${cardOne.medal}</p></td>
+                    </tr>
+                </tbody>
+            </table>
+      </div>
+     `;     
+    popupViews.appendChild(div);
+    
+    console.log(popupViews)
+    const closeBtns = div.querySelector('.close-btn');
+    closeBtns.addEventListener("click", () => {
+        console.log(popupViews)
+        popupViews.classList.remove('active');
+        popupViews.innerHTML= "";
+    });     
+    return cardOne;
+}
+
+
+
+
+
+// Filter de input team 
 export const inputTeam = (dataCountriesTeam) => {
     const unique = [...new Set(dataCountriesTeam)]
     let team = '';
@@ -235,14 +228,12 @@ export const inputTeam = (dataCountriesTeam) => {
     searchTeam.innerHTML = team;
 }
 
-// Filtro de genero dentro de sección Athletes 
+// Filter de input de event por gender 
 export const inputGenderFilter = (genderMaleFilter, genderFemaleFilter, textGender) => {
     const maleEvent = genderMaleFilter.map(athletes => athletes.event);
     const femaleEvent = genderFemaleFilter.map(athletes => athletes.event);
-
     const uniqueM = [...new Set(maleEvent)]
     const uniqueF = [...new Set(femaleEvent)]
-
     switch (textGender) {
         case "Male":
             inputEventFilter(uniqueM)
@@ -252,8 +243,7 @@ export const inputGenderFilter = (genderMaleFilter, genderFemaleFilter, textGend
             inputEventFilter(uniqueF)
             athletesAll(genderFemaleFilter)
             break;
-        default:
-            
+        default:            
       }
 }
 
@@ -262,9 +252,6 @@ export const inputEventFilter = (unique) =>{
     document.getElementById('event').classList.remove('hide');
     let event = '';
     unique.forEach(item => {
-        // const option = document.createElement('option');
-        // option.value = item;
-        // document.querySelector('#searchEvent').appendChild(option);
         event += `
           <option value="${item}"></option>
         `
@@ -281,17 +268,15 @@ export const sports = (dataPictograms) => {
                 <div class="product-card">
                     <img src="${item.img}" class="product-img" alt="">
                     <a class="price">${item.sport}</a>                  
-                    
                 </div>
             </div>
             `
     });
     viewSports.innerHTML = elementos;
 }
-
+// Filter Gender
 export const events = (genderMaleFilter, genderFemaleFilter, textTeam, textEvent) => {
     console.log(textTeam)
-
     switch (textTeam) {
         case "Male":
                 const eventFilterM = genderMaleFilter.filter(athletes => athletes.event === textEvent)
@@ -305,43 +290,41 @@ export const events = (genderMaleFilter, genderFemaleFilter, textTeam, textEvent
             break;
         default:
             console.log("vacioooo")
-
       }
 }
-  
-
-export const eventModal = () => {
-    // card + modal
-    var popupViews = document.querySelectorAll('.popup-view');
-    var popupBtns = document.querySelectorAll('.popup-btn');
-    var closeBtns = document.querySelectorAll('.close-btn');
     
-    //javascript for quick view button
-    var popup = function(popupClick){
-      popupViews[popupClick].classList.add('active');
-    }
-    
-    popupBtns.forEach((popupBtn, i) => {
-      popupBtn.addEventListener("click", () => {
-        popup(i);
-      });
+// Filter Team
+export const filterTeam = (dataCountriesTeam,dataRio) => {
+    document.getElementById("teamRio").addEventListener("change", (event) => {
+      const textTeam = teamRio.value;
+      const teamUser = dataCountriesTeam.includes(textTeam)
+      console.log(teamUser);
+      console.log(dataCountriesTeam);
+      if(teamUser == true) {
+        const teamFilter = dataRio.filter(athletes => athletes.team === textTeam);
+        athletesAll(teamFilter);         
+      } else {
+        athletesAll(dataRio);         
+      }
+      return textTeam;    
     });
-    
-    //javascript for close button
-    closeBtns.forEach((closeBtn) => {
-      closeBtn.addEventListener("click", () => {
-        popupViews.forEach((popupView) => {
-          popupView.classList.remove('active');
-        });
-      });
-    });
-    
     }
-    
-    
 
-
-
+// Filter Sport
+export const filterSport = (sport,dataRio) => {
+    document.getElementById("sportRio").addEventListener("change", (event) => {
+    document.getElementById('gender').classList.remove('hide');
+    const textSport = sportRio.value;
+    const sportUser = sport.includes(textSport)
+    if(sportUser == true) {
+      const sportFilter = dataRio.filter(athletes => athletes.sport === textSport) 
+      athletesAll(sportFilter);
+    } else {
+      athletesAll(dataRio);
+    }
+    return textSport;
+  });
+  }
 
 
 
