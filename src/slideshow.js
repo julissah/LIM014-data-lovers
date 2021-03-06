@@ -16,9 +16,9 @@ document.getElementById('next').addEventListener('click', plusSlides)
 //   showSlides(slideIndex = parseInt(e.target.name))
 //   console.log(e.target.name)
 // }
-function currentSlide(e){
-  showSlides(slideIndex = e)
-}
+// function currentSlide(e){
+//   showSlides(slideIndex = e)
+// }
 
 function showSlides(n) {
   var i;
@@ -33,15 +33,19 @@ function showSlides(n) {
       dots[i].className = dots[i].className.replace(" active", "");
   }
   slides[slideIndex-1].style.display = "block";
-  console.log([slideIndex-1])
   dots[slideIndex-1].className += " active";
 }
 
-// OCULTAR & MOSTRAR PAGES DE LAS NAVBAR
+// MOSTRAR Y OCULTAR PÁGINAS PRINCIPAL & SECUNDARIAS // 
+// eslint-disable-next-line no-undef
 pageRio.addEventListener("click", rioPage);
+// eslint-disable-next-line no-undef
 pageMedals.addEventListener("click", medalsPage);
+// eslint-disable-next-line no-undef
 pageCountries.addEventListener("click", countriesPage);
+// eslint-disable-next-line no-undef
 pageAthletes.addEventListener("click", athletesPage);
+// eslint-disable-next-line no-undef
 pageSports.addEventListener("click", sportsPage);
 
 
@@ -83,3 +87,24 @@ function countriesPage() {
   document.querySelector(".pageSports").style.display = "none";
   document.querySelector(".pageRio").style.display = "none";
 }
+
+// NAVBAR - SCROLLBAR - RESPONSIVE SIDEBAR
+
+//  JS Para efecto de barra de navegación con efecto scroll 
+window.addEventListener("scroll", function(){
+  var header = document.querySelector("header");
+  header.classList.toggle('sticky', window.scrollY > 0);
+});
+
+// JS para navegación responsive sidebar menu
+var menu = document.querySelector('.menu');
+var menuBtn = document.querySelector('.menu-btn');
+var closeBtn = document.querySelector('.close-btn');
+
+menuBtn.addEventListener("click", () => {
+  menu.classList.add('active');
+});
+
+closeBtn.addEventListener("click", () => {
+  menu.classList.remove('active');
+});
