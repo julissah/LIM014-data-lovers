@@ -1,4 +1,7 @@
+
+
 const viewCountries = document.getElementById('mainCountries');
+const inputSearchCountries = document.getElementById('inputSearchCountries');
 const viewAthletes = document.getElementById('mainAthletes');
 const searchC = document.getElementById('searchC'); // Filtro de búsqueda de 
 const searchA = document.getElementById('searchA'); //
@@ -9,71 +12,113 @@ const product = document.querySelector(".product") ;
 const popupViews = document.querySelector(".popup-view");
 const closeBtns = document.querySelector(".close-btn");
 
+// export const uniqueGender = (dataRio) =>{
 
-// *** Countries prueba
-export const countries = (dataCountries,dataCountriesFlag) =>{
-    const unique = [...new Set(dataCountries)]
-    const alpha3Code = dataCountriesFlag.map(athletes => athletes.alpha3Code)
-    let elementos = '';
-    for (let f = 0; f < dataCountriesFlag.length; f++) {    
-            if (alpha3Code.includes(unique[f])) {
-            elementos += `
-            <div class="product">
-                <div class="product-card">
-                    <h2 class="price">${dataCountriesFlag[f].name}</h2>                  
-                    <a class="popup-btn">VIEW MORE</a>
-                    <img src="${dataCountriesFlag[f].flag}" class="product-img" alt="">
-                </div>
+//     const male = dataRio.filter(athletes => athletes.gender === "M")
+//     const sortMale = male.sort((a,b) => a.name.localeCompare(b.name))
+
+//     const sortMaleName = sortMale.filter(athletes => athletes.name)
+//     const uniqueMale = sortMaleName.filter((item,index) => {
+//         return sortMaleName.indexOf(item) === index
+        
+        
+//     })
+//     console.log(uniqueMale)
+// }
+
+
+export const countries = (dataRio,dataCountriesFlag) =>{
+    // const male = dataRio.filter(athletes => athletes.gender === "M")
+    // const female = dataRio.filter(athletes => athletes.gender === "F")
+    const noc = dataRio.map(athletes => athletes.noc)
+    const unique = [...new Set(noc)].sort();
+    let dataTeamFlag = [];
+    let obj = [];
+
+    for (let i = 0; i < unique.length; i++) {
+        for (let f = 0; f < dataCountriesFlag.length; f++) {    
+            if (dataCountriesFlag[f].alpha3Code.indexOf(unique[i])!== -1) {
+            const div = document.createElement("div")
+            div.classList.add("product")
+            div.innerHTML = `
+            <div class="product-card">
+                <h2 class="name">${dataCountriesFlag[f].name}</h2>    
+                <h2 class="price">${dataCountriesFlag[f].alpha3Code}<br><span>${dataCountriesFlag[f].region}</span></h2>
+                <!--<h3>${unique[i]}</h3>-->              
+                <a class="popup-btn">VIEW MORE</a>
+                <img src="${dataCountriesFlag[f].flag}" class="product-img" alt="">
             </div>
-            `
+            <div class="popup-view"></div>
+            `;
+            viewCountries.appendChild(div);
+            const readMore = div.querySelector(".popup-btn")
+            const pop = div.querySelector(".popup-view")
+            readMore.addEventListener("click", () => {
+                pop.classList.add('active');
+                modalCountry(dataCountriesFlag[f],pop);
+            })
+
+            dataTeamFlag = new Object();
+            dataTeamFlag.name = dataCountriesFlag[f].name;
+            dataTeamFlag.flag = dataCountriesFlag[f].flag;
+            dataTeamFlag.alpha3Code = dataCountriesFlag[f].alpha3Code;
+            dataTeamFlag.region = dataCountriesFlag[f].region;
+            dataTeamFlag.subregion = dataCountriesFlag[f].subregion;            
+            dataTeamFlag.capital = dataCountriesFlag[f].capital;
+            dataTeamFlag.area = dataCountriesFlag[f].area;
+            dataTeamFlag.population = dataCountriesFlag[f].population;
+            // dataTeamFlag.male = male.filter(atheles => atheles.noc === unique[i]).length
+            // dataTeamFlag.female = female.filter(atheles => atheles.noc === unique[i]).length
+            Array.prototype.push.apply(obj,[dataTeamFlag]);
         } 
-    } 
-  viewCountries.innerHTML = elementos;
-  }
-// Filtro de busqueda Countries
+        }    
+    }
+  searchCountries(obj);
+  console.log(obj)
+} 
 
-// export const searchCountries = (dataCountriesFlag) => {
-//     const inputSearchCountries = document.getElementById('inputSearchCountries');
+// Filter Search Country
 
-//     searchC.addEventListener('keyup', e => {
-//         e.preventDefault()
-//         const textUser = inputSearchCountries.value.toLowerCase();
-//         let elementos2 = '';
-//         const arraySearchCountries = dataCountriesFlag.filter((item) => {
-            
-//             const itemTeam = item.toLowerCase();
-//             console.log(itemTeam);
-            
-//             if(itemTeam.indexOf(textUser)!== -1 ){
-//                 elementos2 += `
-//                 <article class="card">
-//                     <div class="card-content">
-//                         <img src=${item.flag} alt="" class="img-fluid">  
-//                         <h4>"${item.name}"</h4>
-//                     </div>
-//                 </article>
-//                 `
-//                  return item;
-//             } 
-//         })
-//         // viewSearchCountries(arraySearchCountries);
-//     });
-// }
+export const searchCountries = (objData) => {
+    searchC.addEventListener("keyup", e => {
+        e.preventDefault()
+        viewCountries.innerHTML= "";
+        const textUser = inputSearchCountries.value.toLowerCase();
+        const arrayFlag = objData.filter(item => {
+            const itemCountry = item.name.toLowerCase();
+            if (itemCountry.includes(textUser)){
+                return item;
+            }
+        })
+        viewSearchCountries(arrayFlag);
+    })
+}
 
-//  export const viewSearchCountries = arraySearchCountries => {
-//     let elementos2 = '';
-//     arraySearchCountries.forEach(item => {
-//         elementos2 += `
-//         <article class="card">
-//             <div class="card-content">
-//                 <img src=${item.flag} alt="" class="img-fluid">  
-//                 <h4>${item.name}</h4>
-//             </div>
-//         </article>
-//         `
-//     });
-//         viewCountries.innerHTML = elementos2;
-// }
+ export const viewSearchCountries = itemCountry => {
+    viewCountries.innerHTML= "";
+    for (let i = 0; i < itemCountry.length; i++) {
+        const div = document.createElement("div")
+        div.classList.add("product")
+        div.innerHTML =`
+        <div class="product">   
+        <div class="product-card">
+            <h2 class="name">${itemCountry[i].name}</h2>    
+            <h2 class="price">${itemCountry[i].alpha3Code}<br><span>${itemCountry[i].region}</span></h2>             
+            <a class="popup-btn">VIEW MORE</a>
+            <img src="${itemCountry[i].flag}" class="product-img" alt="">
+        </div>
+        <div class="popup-view"></div>
+        </div> 
+        `
+        viewCountries.appendChild(div)
+        const readMore = div.querySelector(".popup-btn")
+        const pop = div.querySelector(".popup-view")
+        readMore.addEventListener("click", () => {
+            pop.classList.add('active');
+            modalCountry(itemCountry[i],pop); 
+        })
+    }
+}
 
 export const orderAlpha = (option, dataRio) => {
     console.log(option)
@@ -115,7 +160,7 @@ export const athletesGold = (arrayMedalGold) => {
      return athletesGold;
    }
 
-   export const searchAthletes = (dataRio,arrayMedalGold) => {
+export const searchAthletes = (dataRio,arrayMedalGold) => {
     const inputSearchAthletes = document.getElementById('inputSearchAthletes');
     searchA.addEventListener('keyup', e => {
         e.preventDefault()
@@ -212,6 +257,51 @@ export const modal = cardOne => {
     return cardOne;
 }
 
+export const modalCountry = (cardOne,pop) => {
+    console.log(cardOne)
+    popupViews.innerHTML= "";
+    console.log(cardOne)
+    const div = document.createElement("div")
+    div.classList.add("popup-card")
+    div.innerHTML =`
+        <a><i class="fas fa-times close-btn"></i></a>
+        <div class="product-img">
+            <img src="${cardOne.flag}" alt="">
+        </div>
+        <div class="info">
+            <h2>${cardOne.name.toUpperCase()}<br>
+            <span>${cardOne.alpha3Code } &nbsp|&nbsp ${cardOne.region.toUpperCase()}</span></h2><br>
+            <p>
+              CAPITAL: ${cardOne.capital}<br><br>
+              SUBREGION: ${cardOne.subregion}<br><br>
+            </p><br>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>AREA</th>
+                        <th>POPULATION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><p>${cardOne.area}</p></td>
+                        <td><p>${cardOne.population}</p></td>
+                    </tr>
+                </tbody>
+            </table>
+      </div>
+     `;     
+    pop.appendChild(div);
+    
+    console.log(popupViews)
+    const closeBtns = div.querySelector('.close-btn');
+    closeBtns.addEventListener("click", () => {
+        console.log(popupViews)
+        pop.classList.remove('active');
+        pop.innerHTML= "";
+    });     
+    return cardOne;
+}
 
 
 
@@ -315,6 +405,7 @@ export const filterSport = (sport,dataRio) => {
     document.getElementById("sportRio").addEventListener("change", (event) => {
     document.getElementById('gender').classList.remove('hide');
     const textSport = sportRio.value;
+    console.log(sport)
     const sportUser = sport.includes(textSport)
     if(sportUser == true) {
       const sportFilter = dataRio.filter(athletes => athletes.sport === textSport) 
@@ -325,3 +416,29 @@ export const filterSport = (sport,dataRio) => {
     return textSport;
   });
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
