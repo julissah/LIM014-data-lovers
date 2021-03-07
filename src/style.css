@@ -41,7 +41,7 @@
 .section-main{
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: auto;
   background-size: cover;
   background-position: top;
   display: flex;
@@ -264,7 +264,7 @@ header .btn{
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
     background-color: var(--color-bg-secondary);
-    padding: 1rem;
+    padding: 9px;
 }
 
 .form-search i {
@@ -469,6 +469,40 @@ header .btn{
     border-radius: 10px;
     
   }
+
+  /* contadores */
+  @keyframes view{
+      0% {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+}
+.ocultar {
+  opacity:0
+}
+.animar {
+  animation: view 1.3s;
+}
+.contador {
+  text-align: center;
+  padding: 20px 50px;
+}
+.fa-flag, .fa-address-card, .fa-running, .fa-list-alt {
+  color: #1483D5;
+}
+
+.contador-cantidad{
+  letter-spacing: 2px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #FFFFFF;
+
+}
+  /* finc ontadores */
 
 
 

@@ -108,3 +108,48 @@ menuBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   menu.classList.remove('active');
 });
+
+// Contadores Rio
+const contadores = document.querySelectorAll('.contador-cantidad')
+console.log(contadores)
+const velocidad = 2000;
+const animarContadores = () =>{
+  console.log("holii")
+  for(const contador of contadores) {    
+      const actualizarContador = () => {
+        let cantidadMax = +contador.dataset.cantidadTotal,
+        valorActual = +contador.innerText,
+        incremento = cantidadMax / velocidad
+
+        if (valorActual < cantidadMax) {
+          contador.innerText = Math.ceil(valorActual + incremento)
+          setTimeout(actualizarContador, 5);
+        } else {
+          contador.innerText = cantidadMax
+        }
+
+      }
+      actualizarContador()
+    };
+}
+
+const mostrarContadores = elementos => {
+  elementos.forEach(elemento => {
+    if (elemento.isIntersecting) {
+      elemento.target.classList.add('animar')
+      elemento.target.classList.remove('ocultar')
+      setTimeout(animarContadores, 300);
+    }
+  });
+}
+
+const observer = new IntersectionObserver(mostrarContadores, {
+  threshold: 0.75
+})
+
+const elemetosHTML = document.querySelectorAll('.contador')
+elemetosHTML.forEach(elemetoHTML => {
+  observer.observe(elemetoHTML)
+})
+
+animarContadores()

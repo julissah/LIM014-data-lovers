@@ -1,3 +1,5 @@
+
+
 const viewCountries = document.getElementById('mainCountries');
 const inputSearchCountries = document.getElementById('inputSearchCountries');
 const viewAthletes = document.getElementById('mainAthletes');
@@ -10,10 +12,24 @@ const product = document.querySelector(".product") ;
 const popupViews = document.querySelector(".popup-view");
 const closeBtns = document.querySelector(".close-btn");
 
+// export const uniqueGender = (dataRio) =>{
+
+//     const male = dataRio.filter(athletes => athletes.gender === "M")
+//     const sortMale = male.sort((a,b) => a.name.localeCompare(b.name))
+
+//     const sortMaleName = sortMale.filter(athletes => athletes.name)
+//     const uniqueMale = sortMaleName.filter((item,index) => {
+//         return sortMaleName.indexOf(item) === index
+        
+        
+//     })
+//     console.log(uniqueMale)
+// }
+
+
 export const countries = (dataRio,dataCountriesFlag) =>{
-    const male = dataRio.filter(athletes => athletes.gender === "M")
-    const female = dataRio.filter(athletes => athletes.gender === "F")
-    console.log(female)
+    // const male = dataRio.filter(athletes => athletes.gender === "M")
+    // const female = dataRio.filter(athletes => athletes.gender === "F")
     const noc = dataRio.map(athletes => athletes.noc)
     const unique = [...new Set(noc)].sort();
     let dataTeamFlag = [];
@@ -41,17 +57,18 @@ export const countries = (dataRio,dataCountriesFlag) =>{
                 pop.classList.add('active');
                 modalCountry(dataCountriesFlag[f],pop);
             })
-            const ok = male.filter(atheles => atheles.noc === unique[i])
 
             dataTeamFlag = new Object();
             dataTeamFlag.name = dataCountriesFlag[f].name;
             dataTeamFlag.flag = dataCountriesFlag[f].flag;
             dataTeamFlag.alpha3Code = dataCountriesFlag[f].alpha3Code;
             dataTeamFlag.region = dataCountriesFlag[f].region;
-            dataTeamFlag.subregion = dataCountriesFlag[f].subregion;
-            dataTeamFlag.population = dataCountriesFlag[f].population;
+            dataTeamFlag.subregion = dataCountriesFlag[f].subregion;            
             dataTeamFlag.capital = dataCountriesFlag[f].capital;
-            // dataTeamFlag.male = male.filter(atheles => atheles.noc === unique[i])
+            dataTeamFlag.area = dataCountriesFlag[f].area;
+            dataTeamFlag.population = dataCountriesFlag[f].population;
+            // dataTeamFlag.male = male.filter(atheles => atheles.noc === unique[i]).length
+            // dataTeamFlag.female = female.filter(atheles => atheles.noc === unique[i]).length
             Array.prototype.push.apply(obj,[dataTeamFlag]);
         } 
         }    
@@ -257,19 +274,18 @@ export const modalCountry = (cardOne,pop) => {
             <p>
               CAPITAL: ${cardOne.capital}<br><br>
               SUBREGION: ${cardOne.subregion}<br><br>
-              POPULATION: ${cardOne.population}
-            </p><br><br>
+            </p><br>
             <table class="table">
                 <thead>
                     <tr>
-                        <th>MALE</th>
-                        <th>FEMAEL</th>
+                        <th>AREA</th>
+                        <th>POPULATION</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><p>${cardOne.region}</p></td>
-                        <td><p>${cardOne.region}</p></td>
+                        <td><p>${cardOne.area}</p></td>
+                        <td><p>${cardOne.population}</p></td>
                     </tr>
                 </tbody>
             </table>
@@ -389,6 +405,7 @@ export const filterSport = (sport,dataRio) => {
     document.getElementById("sportRio").addEventListener("change", (event) => {
     document.getElementById('gender').classList.remove('hide');
     const textSport = sportRio.value;
+    console.log(sport)
     const sportUser = sport.includes(textSport)
     if(sportUser == true) {
       const sportFilter = dataRio.filter(athletes => athletes.sport === textSport) 

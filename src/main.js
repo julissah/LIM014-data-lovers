@@ -30,6 +30,7 @@ const dataCountriesTeam = data.athletes.map(athletes => athletes.team) //data at
 
 // athletesAll(dataRio);
 countries(dataRio,dataCountriesFlag);
+
 // searchCountries(dataRio);
 athletesGold(arrayMedalGold);
 searchAthletes(dataRio,arrayMedalGold);
@@ -39,9 +40,6 @@ filterTeam(dataCountriesTeam,dataRio);
 inputTeam(dataCountriesTeam);
 filterGender(dataRio);
 sports(dataPictograms);
-
-
-
 })
 
 
