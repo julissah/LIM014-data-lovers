@@ -127,6 +127,7 @@ const animarContadores = () =>{
         } else {
           contador.innerText = cantidadMax
         }
+
       }
       actualizarContador()
     };
@@ -152,4 +153,3 @@ elemetosHTML.forEach(elemetoHTML => {
 })
 
 animarContadores()
-});
