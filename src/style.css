@@ -466,7 +466,8 @@ header .btn{
     width: auto;
     height: auto;
     margin: 10px;
-    border-radius: 10px; 
+    border-radius: 10px;
+    
   }
 
   /* contadores */
@@ -504,7 +505,25 @@ header .btn{
   /* finc ontadores */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* style card + modal */
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
   *{
     margin: 0;

@@ -40,9 +40,6 @@ filterTeam(dataCountriesTeam,dataRio);
 inputTeam(dataCountriesTeam);
 filterGender(dataRio);
 sports(dataPictograms);
-
-
-
 })
 
 
