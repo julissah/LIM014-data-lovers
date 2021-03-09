@@ -1,5 +1,3 @@
-
-
 const viewCountries = document.getElementById('mainCountries');
 const inputSearchCountries = document.getElementById('inputSearchCountries');
 const viewAthletes = document.getElementById('mainAthletes');
@@ -196,9 +194,9 @@ export const searchAthletes = (dataRio,arrayMedalGold) => {
         <h2 class="name">${item.name.toUpperCase()}</h2>
         <span class="price">${item.noc } &nbsp|&nbsp ${item.sport.toUpperCase()}</span>
         <a class="popup-btn">VIEW MORE</a>
-        <img src="./img/SIMONE_BILES.webp" class="product-img" alt="">   
+        <img src="./img/sportsman.svg" class="product-img" alt="">   
         `;
-        product.appendChild(div);
+            product.appendChild(div);
         console.log(div)
         const readMore = div.querySelector(".popup-btn");
         readMore.addEventListener("click", () => {
@@ -364,6 +362,8 @@ export const sports = (dataPictograms) => {
     });
     viewSports.innerHTML = elementos;
 }
+
+
 // Filter Gender
 export const events = (genderMaleFilter, genderFemaleFilter, textTeam, textEvent) => {
     console.log(textTeam)
@@ -417,6 +417,48 @@ export const filterSport = (sport,dataRio) => {
   });
   }
 
+
+// Funciones
+
+export const filterMedal = (dataRio, conditionTeam, conditionMedal) => {
+    let objTeam = dataRio.filter(athletes => athletes.team.includes(conditionTeam));
+    return objTeam.filter(medals => medals.medal.includes(conditionMedal)).length;
+};   
+
+// Medallas
+/*El forEach llena el objeto vacío que es object medals y se crean los keywords*/
+// let medals = [];
+// teams.forEach((team) => {
+//     let goldenMedals = filterMedal(athletesData, team, "Gold")
+//     let silverMedals = filterMedal(athletesData, team, "Silver")
+//     let bronzeMedals = filterMedal(athletesData, team, "Bronze")
+//     let total = goldenMedals + silverMedals + bronzeMedals;
+
+//     medals.push({
+//         country: team,
+//         golden: goldenMedals,
+//         silver: silverMedals,
+//         bronze: bronzeMedals,
+//         total: total
+//     })
+// });
+
+/*El forEach pinta la tabla con los objetos ya creados*/
+// let medalsOrdered = sortByTotal(medals, 'dsc');
+
+// medalsOrdered.forEach((obj) => {
+//     const container = document.createElement('tr');
+//     const table = document.getElementById("bodytable");
+//     table.appendChild(container).innerHTML =
+//         `<tr> 
+//       <td> <strong>${obj.country}</strong> 
+//       </td><td>${obj.golden}</td>
+//       </td><td>${obj.silver}</td>
+//       </td><td>${obj.bronze}</td>
+//       </td><td>${obj.total}</td>
+//       </tr>`
+
+// });
 
 
 

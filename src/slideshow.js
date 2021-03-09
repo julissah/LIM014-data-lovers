@@ -7,23 +7,11 @@ function plusSlides(e){
 }
 document.getElementById('prev').addEventListener('click', plusSlides)
 document.getElementById('next').addEventListener('click', plusSlides)
-// document.getElementById('slide1').addEventListener('click',currentSlide)
-// document.getElementById('slide2').addEventListener('click',currentSlide)
-// document.getElementById('slide3').addEventListener('click',currentSlide)
-
-// Thumbnail image controls
-// function currentSlide(e) {
-//   showSlides(slideIndex = parseInt(e.target.name))
-//   console.log(e.target.name)
-// }
-// function currentSlide(e){
-//   showSlides(slideIndex = e)
-// }
 
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
+  var dots = document.getElementsByClassName('dot');
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
@@ -103,6 +91,10 @@ var closeBtn = document.querySelector('.close-btn');
 
 menuBtn.addEventListener("click", () => {
   menu.classList.add('active');
+});
+
+menu.addEventListener("click", () => {
+  menu.classList.remove('active');
 });
 
 closeBtn.addEventListener("click", () => {
