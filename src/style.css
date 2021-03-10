@@ -837,3 +837,8 @@ img.icon-medal{
   align-items: flex-end;
   width: 100%;
 }
+
+.tac img {
+  width: 30px;
+  size: 10px;
+}
