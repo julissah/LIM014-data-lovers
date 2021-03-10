@@ -15,6 +15,7 @@ const viewSports = document.getElementById("mainSports");
 // Data Countries
 export const countries = (dataRio,dataCountriesFlag) =>{
     const uniqueNameAthletesRio = dataRio.map(athletes => athletes.name)
+    // eslint-disable-next-line no-undef
     const uniqueAthletesRio = [...new Set(uniqueNameAthletesRio)]
     const eventFilter = dataRio.map(athletes => athletes.event)
     const uniqueEventsRio = [...new Set(eventFilter)]
@@ -158,7 +159,7 @@ export const sports = (dataPictograms, dataRio) => {
             Array.prototype.push.apply(obj,[dataSport]);
             readMore.addEventListener("click", () => {
                 pop2.classList.add('active');
-                modalSport(obj[f],pop2);
+                modalSport(obj[f-1],pop2);
             });
         } 
         }    
