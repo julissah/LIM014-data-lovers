@@ -54,7 +54,7 @@
   color: #dbc81f;
 }
 .section-main{
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(80, 72, 72, 0.5);
   font-size: 60px;
   font-weight: 800;
   text-transform: uppercase;
@@ -177,9 +177,25 @@ header .btn{
 }
 
 @media (max-width: 630px){
-  .section-main h1{
-    font-size: 50px;
-    line-height: 60px;
+  .section-main {
+  line-height: 30px;
+  font-size: 25px;
+  bottom: 350px}
+  .navbar img {size:25px}
+  .countRio, .contador.animar{
+    size:25px;
+    font-size: 12px;
+    padding: 5px;
+    text-align: 10px;}
+  .contador-cantidad, .data, h2 .fa-3x{
+    width: 100%;
+    text-align: 10px;
+    font-size: 12px;
+    padding: 15px;
+    justify-content: space-between;
+    }
+  .fa-3x {
+    width:35px;
   }
 }
 
@@ -196,12 +212,12 @@ img.icon-medal{
   /* // SECTION PRINCIPALL PAGINA  */
 
 .athletesPages h1, .sportsPage h1, .countriesPage h1, .medalsPage h1 {
-    color: #717171;
+    color: #ffff;
     font-size: 45px;
     font-weight: 800;
     text-transform: uppercase;
     text-align: left;
-    padding-left: initial;
+    /* padding-left: inherit; */
     letter-spacing: 2px;
     padding-top: 175px;    
     padding-left: 250px;
@@ -269,15 +285,6 @@ img.icon-medal{
     border-radius: var(--bo);
 }
 
-/* Cards */
-/* .grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr)); 
-    gap: 2rem; 
-    justify-items: stretch;
-} */
-
-
 .grid3 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr)); /*Permite repetir 4  veces de un mismo tamaño(1fr)*/
@@ -323,7 +330,7 @@ img.icon-medal{
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1000px;
+    width: 100%;
     position: relative;
     margin: auto;
   }
@@ -402,8 +409,10 @@ img.icon-medal{
   }
   
   /* On smaller screens, decrease text size */
-  @media only screen and (max-width: 300px) {
+  @media only screen and (max-width: 650px) {
     .prev, .next,.text {font-size: 11px}
+    .prev, .next {top: 25%}
+    .prev, .next {top: 25%}
   }
 
   /* table */
@@ -689,6 +698,8 @@ img.icon-medal{
     box-sizing: border-box;
     padding: 20px;
     border-radius: 10px;
+    overflow: hidden;
+    overflow: scroll;
   }
   
   .product .popup-card .close-btn{
@@ -812,12 +823,17 @@ img.icon-medal{
   
   /* Footer */
 
-.footer {
+.contentFooter{
   background-color: #0085C7;
   text-align: center;
   color: white;
-  padding: 40px;
+  padding: 35px;
   font-size: 20px;
   width: 100%;
-  z-index: 999;
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
 }
