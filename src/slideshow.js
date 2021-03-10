@@ -25,15 +25,10 @@ function showSlides(n) {
 }
 
 // MOSTRAR Y OCULTAR PÁGINAS PRINCIPAL & SECUNDARIAS // 
-// eslint-disable-next-line no-undef
 pageRio.addEventListener("click", rioPage);
-// eslint-disable-next-line no-undef
 pageMedals.addEventListener("click", medalsPage);
-// eslint-disable-next-line no-undef
 pageCountries.addEventListener("click", countriesPage);
-// eslint-disable-next-line no-undef
 pageAthletes.addEventListener("click", athletesPage);
-// eslint-disable-next-line no-undef
 pageSports.addEventListener("click", sportsPage);
 
 
@@ -103,10 +98,8 @@ closeBtn.addEventListener("click", () => {
 
 // Contadores Rio
 const contadores = document.querySelectorAll('.contador-cantidad')
-console.log(contadores)
 const velocidad = 2000;
 const animarContadores = () =>{
-  console.log("holii")
   for(const contador of contadores) {    
       const actualizarContador = () => {
         let cantidadMax = +contador.dataset.cantidadTotal,
@@ -122,7 +115,7 @@ const animarContadores = () =>{
 
       }
       actualizarContador()
-    };
+    }
 }
 
 const mostrarContadores = elementos => {

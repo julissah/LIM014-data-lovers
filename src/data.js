@@ -159,7 +159,7 @@ export const sports = (dataPictograms, dataRio) => {
             Array.prototype.push.apply(obj,[dataSport]);
             readMore.addEventListener("click", () => {
                 pop2.classList.add('active');
-                modalSport(obj[f1],pop2);
+                modalSport(obj[f-1],pop2);
             });
         } 
         }    

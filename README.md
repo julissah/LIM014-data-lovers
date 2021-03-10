@@ -89,7 +89,7 @@ Decidimos utilizar "Figma" para elaborar nuestro prototipo, obteniendo el siguie
 
 ### Testeos de usabilidad
 
-Realizamos testeo de nuestro prototipo inicial con un total de 4 personas, obteniendo como retroalimentación de mejoras que implementamos en el producto final, usamos la paleta de colores del logo de las Olimpiadas Río 2016. De hecho, en estos prototipos no incluímos la tercera sección "Estadísticas", solo lo añadimos a medida que fuimos avanzando la página.
+Realizamos testeo de nuestro prototipo inicial con un total de 4 personas, obteniendo como retroalimentación de mejoras que implementamos en el producto final, usamos la paleta de colores del logo de las Olimpiadas Río 2016. De hecho, en estos prototipos no incluímos todas las secciones en alta, para optimizar los tiempos, usamos prototipo de media fidelidad para justamente recibir feedback sobre los flujos, realizamos modificaciones y cambios en estilos del modal, home page de acuerdo al feedback que ibamos recibiendo.
 
 
 ## 4. Objetivos aprendidos
